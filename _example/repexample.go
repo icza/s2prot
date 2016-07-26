@@ -1,3 +1,7 @@
+/*
+This example shows how to use the `s2prot` package to extract basic information
+from a StarCraft II (*.SC2Replay) file.
+*/
 package main
 
 import (

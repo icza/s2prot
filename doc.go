@@ -12,23 +12,25 @@ The below example code can be found in _example/repexample.go.
 To use s2prot, we need an MPQ parser to get content from a replay.
 
 	import "github.com/icza/mpq"
-	
+
 	m, err := mpq.NewFromFile("../../mpq/reps/automm.SC2Replay")
 	if err != nil {
 		panic(err)
 	}
 	defer m.Close()
-	
+
 Replay header (which is the MPQ User Data) can be decoded by s2prot.DecodeHeader(). Printing replay version:
 
 	header := s2prot.DecodeHeader(m.UserData())
 	ver := header.Structv("version")
 	fmt.Printf("Version: %d.%d.%d.%d\n", ver.Int("major"), ver.Int("minor"), ver.Int("revison"), ver.Int("build"))
+	// Output: "Version: 2.1.0.34644"
 
 Base build is part of the replay header:
 
 	baseBuild := int(ver.Int("baseBuild"))
 	fmt.Printf("Base build: %d\n", baseBuild)
+	// Output: "Base build: 32283"
 
 Which can be used to obtain the proper instance of Protocol:
 
@@ -45,6 +47,7 @@ Which can now be used to decode all other info in the replay. To decode the Deta
 	}
 	details := p.DecodeDetails(detailsData)
 	fmt.Println("Map name:", details.Stringv("title"))
+	// Output: "Map name: Hills of Peshkov"
 
 Information sources
 
