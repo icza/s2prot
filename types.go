@@ -198,6 +198,11 @@ func parseTypeInfo(s string) typeInfo {
 
 // Struct represents a decoded struct.
 // It is a dynamic struct modelled with a general map with helper methods to access its content.
+//
+// Tip: use the encoding/json package to nicely format Struct values, e.g.:
+//
+//     data, _ := json.MarshalIndent(someStruct, "", "  ")
+//     fmt.Printf("Full Struct:\n%s\n", data)
 type Struct map[string]interface{}
 
 // Value returns the value specified by the path.
