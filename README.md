@@ -4,6 +4,9 @@
 
 Package `s2prot` is a decoder/parser of Blizzard's StarCraft II replay file format (*.SC2Replay).
 
+`s2prot` processes the "raw" data that can be decoded from replay files using an MPQ parser.
+[github.com/icza/mpq](https://github.com/icza/mpq) is such an MPQ parser.
+
 ## Information sources
 
 - s2protocol: Blizzard's reference implementation in python: https://github.com/Blizzard/s2protocol
