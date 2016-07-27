@@ -1,3 +1,7 @@
+/*
+This example shows how to use the rep package to easily extract information
+from a StarCraft II (*.SC2Replay) file.
+*/
 package main
 
 import (
