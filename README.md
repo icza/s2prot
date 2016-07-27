@@ -150,6 +150,7 @@ Which yields a JSON text similar to the one posted above (at High-level Usage).
 
 - s2protocol implementation of the Scelight project: https://github.com/icza/scelight/tree/master/src-app/hu/scelight/sc2/rep/s2prot
 
+- Replay model of the Scelight project: https://github.com/icza/scelight/tree/master/src-app/hu/scelight/sc2/rep/model
 
 ## License
 
