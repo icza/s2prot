@@ -21,6 +21,7 @@ func main() {
 	fmt.Printf("Game events:    %d\n", len(r.GameEvts))
 	fmt.Printf("Message events: %d\n", len(r.MessageEvts))
 	fmt.Printf("Tracker events: %d\n", len(r.TrackerEvts))
+
 	fmt.Println("Players:")
 	for _, p := range r.Details.Players() {
 		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %s\n",

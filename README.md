@@ -37,6 +37,7 @@ And that's all! We now have all the info from the replay! Printing some of it:
 	fmt.Printf("Game events:    %d\n", len(r.GameEvts))
 	fmt.Printf("Message events: %d\n", len(r.MessageEvts))
 	fmt.Printf("Tracker events: %d\n", len(r.TrackerEvts))
+
 	fmt.Println("Players:")
 	for _, p := range r.Details.Players() {
 		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %s\n",
@@ -106,7 +107,8 @@ Replay header (which is the MPQ User Data) can be decoded by `s2prot.DecodeHeade
 
 	header := s2prot.DecodeHeader(m.UserData())
 	ver := header.Structv("version")
-	fmt.Printf("Version: %d.%d.%d.%d\n", ver.Int("major"), ver.Int("minor"), ver.Int("revision"), ver.Int("build"))
+	fmt.Printf("Version: %d.%d.%d.%d\n",
+		ver.Int("major"), ver.Int("minor"), ver.Int("revision"), ver.Int("build"))
 	// Output: "Version: 2.1.9.34644"
 
 Base build is part of the replay header:

@@ -19,7 +19,8 @@ func main() {
 
 	header := s2prot.DecodeHeader(m.UserData())
 	ver := header.Structv("version")
-	fmt.Printf("Version: %d.%d.%d.%d\n", ver.Int("major"), ver.Int("minor"), ver.Int("revision"), ver.Int("build"))
+	fmt.Printf("Version: %d.%d.%d.%d\n",
+		ver.Int("major"), ver.Int("minor"), ver.Int("revision"), ver.Int("build"))
 	// Output: "Version: 2.1.9.34644"
 
 	baseBuild := int(ver.Int("baseBuild"))
