@@ -69,7 +69,7 @@ Output:
 	  "dataBuildNum": 42253,
 	  "elapsedGameLoops": 13804,
 	  "ngdpRootKey": {
-	    "data": "\ufffd \ufffd\ufffd\ufffd\ufffd]\ufffd..."
+	    "data": "\ufffd \ufffd\ufffd\ufffd\ufffd]\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd..."
 	  },
 	  "replayCompatibilityHash": {
 	    "data": "\ufffd\ufffd\ufffd'⌂\u001fv\ufffd%\rEĪѓX"

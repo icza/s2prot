@@ -11,6 +11,8 @@ The package is safe for concurrent use.
 
 ## High-level Usage
 
+[![GoDoc](https://godoc.org/github.com/icza/s2prot/rep?status.svg)](https://godoc.org/github.com/icza/s2prot/rep)
+
 The package `s2prot/rep` provides enumerations and types to model data structures
 of StarCraft II replays (*.SC2Replay) decoded by the `s2prot` package. These provide a higher level overview
 and much easier to use.
