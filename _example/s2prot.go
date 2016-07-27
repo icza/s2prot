@@ -5,7 +5,6 @@ from a StarCraft II (*.SC2Replay) file.
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/icza/mpq"
 	"github.com/icza/s2prot"
@@ -40,6 +39,5 @@ func main() {
 	fmt.Println("Map name:", details.Stringv("title"))
 	// Output: "Map name: Hills of Peshkov"
 
-	data, _ := json.MarshalIndent(header, "", "  ")
-	fmt.Printf("Full Header:\n%s\n", data)
+	fmt.Printf("Full Header:\n%v\n", header)
 }

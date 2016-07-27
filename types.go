@@ -284,7 +284,8 @@ func (s *Struct) BitArr(path ...string) (v BitArr) {
 }
 
 // String returns the idented JSON string representation of the Struct.
-func (s *Struct) String() string {
+// Defined with value receiver so this gets called even if a non-pointer is printed.
+func (s Struct) String() string {
 	b, _ := json.MarshalIndent(s, "", "  ")
 	return string(b)
 }
