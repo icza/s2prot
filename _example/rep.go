@@ -28,7 +28,7 @@ func main() {
 
 	fmt.Println("Players:")
 	for _, p := range r.Details.Players() {
-		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %s\n",
+		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %v\n",
 			p.Name, p.Race().Letter, p.TeamId()+1, p.Result())
 	}
 	fmt.Printf("Full Header:\n%v\n", r.Header)

@@ -38,7 +38,7 @@ And that's all! We now have all the info from the replay! Printing some of it:
 
 	fmt.Println("Players:")
 	for _, p := range r.Details.Players() {
-		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %s\n",
+		fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Result: %v\n",
 			p.Name, p.Race().Letter, p.TeamId()+1, p.Result())
 	}
 
@@ -146,6 +146,7 @@ Information sources
 
 - s2protocol implementation of the Scelight project: https://github.com/icza/scelight/tree/master/src-app/hu/scelight/sc2/rep/s2prot
 
+- Replay model of the Scelight project: https://github.com/icza/scelight/tree/master/src-app/hu/scelight/sc2/rep/model
 
 */
 package s2prot

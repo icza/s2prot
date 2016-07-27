@@ -20,7 +20,8 @@ type Enum struct {
 }
 
 // String returns the string representation of the enum (the name).
-func (e *Enum) String() string {
+// Defined with value receiver so this gets called even if a non-pointer is printed.
+func (e Enum) String() string {
 	return e.Name
 }
 
