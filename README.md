@@ -93,6 +93,8 @@ Output:
 
 ## Low-level Usage
 
+[![GoDoc](https://godoc.org/github.com/icza/s2prot?status.svg)](https://godoc.org/github.com/icza/s2prot)
+
 The below example code can be found in https://github.com/icza/s2prot/blob/master/_example/s2prot.go.
 
 To use `s2prot`, we need an MPQ parser to get content from a replay.
