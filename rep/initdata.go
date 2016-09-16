@@ -10,7 +10,7 @@ import (
 	"github.com/icza/s2prot"
 )
 
-// Init data (the inital lobby).
+// InitData describes the init data (the inital lobby).
 type InitData struct {
 	s2prot.Struct
 
@@ -47,7 +47,7 @@ func newInitData(s s2prot.Struct) InitData {
 	return i
 }
 
-// Game description
+// GameDescription is the game description
 type GameDescription struct {
 	s2prot.Struct
 
@@ -189,7 +189,7 @@ func (g *GameDescription) CacheHandles() []*CacheHandle {
 	return g.cacheHandles
 }
 
-// Game options
+// GameOptions is the game options
 type GameOptions struct {
 	s2prot.Struct
 }
@@ -287,7 +287,7 @@ func (g *GameDescription) SlotDescriptions() []SlotDescription {
 	return g.slotDescriptions
 }
 
-// Slot description
+// SlotDescription is the slot description
 type SlotDescription struct {
 	s2prot.Struct
 }
@@ -322,7 +322,7 @@ func (s *SlotDescription) AllowedRaces() s2prot.BitArr {
 	return s.BitArr("allowedRaces")
 }
 
-// Lobby state
+// LobbyState is the lobby state
 type LobbyState struct {
 	s2prot.Struct
 
@@ -379,7 +379,7 @@ func (l *LobbyState) PickedMapTag() int64 {
 	return l.Int("pickedMapTag")
 }
 
-// Slot
+// Slot describes a slot
 type Slot struct {
 	s2prot.Struct
 }
@@ -523,7 +523,7 @@ func (s *Slot) HasSilencePenalty() bool {
 	return s.Bool("hasSilencePenalty")
 }
 
-// User initial data
+// UserInitData describes user initial data
 type UserInitData struct {
 	s2prot.Struct
 

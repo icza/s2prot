@@ -288,7 +288,7 @@ func (s Struct) String() string {
 	return string(b)
 }
 
-// Event
+// Event descriptor
 type Event struct {
 	Struct
 	*EvtType // Pointer only to avoid copying
@@ -304,7 +304,7 @@ func (e *Event) UserId() int64 {
 	return e.Int("userid")
 }
 
-// Bit array which stores the bits in a byte slice.
+// BitArr is a bit array which stores the bits in a byte slice.
 type BitArr struct {
 	Count int    // Bits count
 	Data  []byte // Data holding the bits

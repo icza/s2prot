@@ -207,7 +207,7 @@ func (b *bitPackedBuff) readAligned(n int) (buff []byte) {
 	return
 }
 
-// readUnaligned reads and returns n bytes (or more precicely n*8 bits).
+// readUnaligned reads and returns n bytes (or more precisely n*8 bits).
 func (b *bitPackedBuff) readUnaligned(n int) (buff []byte) {
 	buff = make([]byte, n)
 	if n == 0 {

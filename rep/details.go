@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-// Game details (overall replay details).
+// Details describles the game details (overall replay details).
 type Details struct {
 	s2prot.Struct
 

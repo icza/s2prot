@@ -29,7 +29,7 @@ func init() {
 	}
 }
 
-// Event type describing a named event data structure type.
+// EvtType describes a named event data structure type.
 type EvtType struct {
 	Id     int    // Id of the event
 	Name   string // Name of the event

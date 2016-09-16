@@ -14,12 +14,18 @@ import (
 )
 
 var (
-	ErrInvalidRepFile        = errors.New("Invalid SC2Replay file!")
+	// ErrInvalidRepFile means invalid replay file.
+	ErrInvalidRepFile = errors.New("Invalid SC2Replay file!")
+
+	// ErrUnsupportedRepVersion means the replay file is valid but its version is not supported.
 	ErrUnsupportedRepVersion = errors.New("Unsupported replay version!")
-	ErrDecoding              = errors.New("Decoding error!") // Most likely because replay file is invalid, but also might be due to an implementation bug
+
+	// ErrDecoding means decoding the replay file failed,
+	// Most likely because replay file is invalid, but also might be due to an implementation bug
+	ErrDecoding = errors.New("Decoding error!")
 )
 
-// Descriptor of a replay.
+// Rep describes a replay.
 type Rep struct {
 	m *mpq.MPQ // MPQ parser for reading the file
 
@@ -111,7 +117,7 @@ func NewEvts(input io.ReadSeeker, game, message, tracker bool) (*Rep, error) {
 // ErrUnsupportedRepVersion is returned if the input is a valid SC2Replay file but its version is not supported.
 //
 // ErrDecoding is returned if decoding the replay fails. This is most likely because the input is invalid, but also might be due to an implementation bug.
-func newRep(m *mpq.MPQ, game, message, tracker bool) (rep_ *Rep, errRes error) {
+func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes error) {
 	closeMPQ := true
 	defer func() {
 		// If returning due to an error, MPQ must be closed!

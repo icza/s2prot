@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-// Replay Header (replay game version and length).
+// Header describes the replay header (replay game version and length).
 type Header struct {
 	s2prot.Struct
 

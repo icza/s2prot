@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-// Base of enum-like types.
+// Enum is the base of enum-like types.
 type Enum struct {
 	Name string
 }
@@ -25,14 +25,14 @@ func (e Enum) String() string {
 	return e.Name
 }
 
-// Game speed type
+// GameSpeed is the game speed type
 type GameSpeed struct {
 	Enum
 	attrValue string // Game speed value used in attributes events
 	RelSpeed  int    // Relative speed compared to Normal
 }
 
-// Slice of all game speeds, index is used in Details["gameSpeed"]
+// GameSpeeds is the slice of all game speeds, index is used in Details["gameSpeed"]
 var GameSpeeds = []*GameSpeed{
 	{Enum{"Slower"}, "Slor", 60},
 	{Enum{"Slow"}, "Slow", 45},
@@ -67,7 +67,7 @@ type Race struct {
 	Letter rune // Race letter (first character of the English name)
 }
 
-// Slice of all races.
+// Races is the slice of all races.
 var Races = []*Race{
 	{Enum{"Terran"}, 'T'},
 	{Enum{"Zerg"}, 'Z'},
@@ -138,7 +138,7 @@ type Result struct {
 	Letter rune // Result letter (first character of the name)
 }
 
-// Slice of all results, index used in Details["playerList"]["result"]
+// Results is the slice of all results, index used in Details["playerList"]["result"]
 var Results = []*Result{
 	{Enum{"Unknown"}, '-'},
 	{Enum{"Victory"}, 'V'},
@@ -169,7 +169,7 @@ type Control struct {
 	attrValue string // Control value used in attributes events
 }
 
-// Slice of all control, index used in InitData["lobbyState"]["slots"]["control"] and in Details["playerList"]["control"]
+// Controls is the slice of all control, index used in InitData["lobbyState"]["slots"]["control"] and in Details["playerList"]["control"]
 var Controls = []*Control{
 	{Enum{"Open"}, "Open"},
 	{Enum{"Closed"}, "Clsd"},
@@ -201,7 +201,7 @@ type Observe struct {
 	Enum
 }
 
-// Slice of all observes, index used in InitData["lobbyState"]["slots"]["observe"] and in Details["playerList"]["observe"]
+// Observes is the slice of all observes, index used in InitData["lobbyState"]["slots"]["observe"] and in Details["playerList"]["observe"]
 var Observes = []*Observe{
 	{Enum{"Participant"}},
 	{Enum{"Spectator"}},
@@ -235,7 +235,7 @@ type Color struct {
 	attrValue string  // Color value used in attributes events
 }
 
-// Slice of all colors, index used in InitData["lobbyState"]["slots"]["colorPref"]["color"]
+// Colors is the slice of all colors, index used in InitData["lobbyState"]["slots"]["colorPref"]["color"]
 var Colors = []*Color{
 	{Enum: Enum{"Unknown"}, RGB: [3]byte{0, 0, 0}},
 	{Enum: Enum{"Red"}, RGB: [3]byte{180, 20, 30}},
@@ -299,7 +299,7 @@ type League struct {
 	Letter rune // League letter (first character of the English name except 'R' for LeagueGrandmaster and '-' for Unknown)
 }
 
-// Slice of all leagues.
+// Leagues is the slice of all leagues.
 var Leagues = []*League{
 	{Enum{"Unknown"}, '-'},
 	{Enum{"Bronze"}, 'B'},
@@ -325,7 +325,7 @@ var (
 	LeagueUnranked    = Leagues[8]
 )
 
-// leagueById returns the Leage specified by its id.
+// leagueById returns the League specified by its id.
 // LeagueUnknown is returned if id is unknown.
 func leagueById(leagueId int64) *League {
 	if id := int(leagueId); id >= 0 && id < len(Leagues) {
@@ -334,13 +334,13 @@ func leagueById(leagueId int64) *League {
 	return LeagueUnknown
 }
 
-// Battle.net website language.
+// BnetLang is the type of Battle.net website language.
 type BnetLang struct {
 	Enum
 	Code string // 2-letter language code, the way it appears in URLs.
 }
 
-// Slice of all Battle.net languages.
+// BnetLangs is the slice of all Battle.net languages.
 var BnetLangs = []*BnetLang{
 	{Enum{"English"}, "en"},
 	{Enum{"Chinese (Traditional)"}, "zn"},
@@ -368,12 +368,12 @@ var (
 	BnetLangSpanish            = BnetLangs[9]
 )
 
-// SC2 Realm (sub-region).
+// Realm is the type of SC2 Realm (sub-region).
 type Realm struct {
 	Enum
 }
 
-// Slice of all realms.
+// Realms is the slice of all realms.
 var Realms = []*Realm{
 	{Enum{"North America"}},
 	{Enum{"Latin America"}},
@@ -399,7 +399,7 @@ var (
 	RealmUnknown      = Realms[8]
 )
 
-// SC2 Region.
+// Region is the type of SC2 Region.
 type Region struct {
 	Enum
 	Code      string      // 2-letter region code
@@ -409,7 +409,7 @@ type Region struct {
 	BnetLangs []*BnetLang // Available languages of the region's web page, first is the default language
 }
 
-// Slice of all regions, index used in Details["playerList"]["toon"]["region"]
+// Regions is the slice of all regions, index used in Details["playerList"]["toon"]["region"]
 var Regions = []*Region{
 	{Enum{"Unknown"}, "", mustPU("http://unknown.depot.battle.net:1119/"), mustPU("http://unknown.battle.net/"),
 		[]*Realm{},
@@ -490,7 +490,7 @@ func regionById(regionId int64) *Region {
 	return RegionUnknown
 }
 
-// Cache handle, the identifier of a remote resource. A cache hande is a depedency.
+// CacheHandle is the identifier of a remote resource. A cache hande is a dependency.
 type CacheHandle struct {
 	Type   string  // Type of the resource, file extension.
 	Region *Region // Region the resouce poins to.
