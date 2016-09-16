@@ -34,12 +34,12 @@ type GameSpeed struct {
 
 // Slice of all game speeds, index is used in Details["gameSpeed"]
 var GameSpeeds = []*GameSpeed{
-	&GameSpeed{Enum{"Slower"}, "Slor", 60},
-	&GameSpeed{Enum{"Slow"}, "Slow", 45},
-	&GameSpeed{Enum{"Normal"}, "Norm", 36},
-	&GameSpeed{Enum{"Fast"}, "Fast", 30},
-	&GameSpeed{Enum{"Faster"}, "Fasr", 26},
-	&GameSpeed{Enum{"Unknown"}, "", 26},
+	{Enum{"Slower"}, "Slor", 60},
+	{Enum{"Slow"}, "Slow", 45},
+	{Enum{"Normal"}, "Norm", 36},
+	{Enum{"Fast"}, "Fast", 30},
+	{Enum{"Faster"}, "Fasr", 26},
+	{Enum{"Unknown"}, "", 26},
 }
 
 // Named game speeds.
@@ -69,11 +69,11 @@ type Race struct {
 
 // Slice of all races.
 var Races = []*Race{
-	&Race{Enum{"Terran"}, 'T'},
-	&Race{Enum{"Zerg"}, 'Z'},
-	&Race{Enum{"Protoss"}, 'P'},
-	&Race{Enum{"Random"}, 'R'},
-	&Race{Enum{"Unknown"}, '-'},
+	{Enum{"Terran"}, 'T'},
+	{Enum{"Zerg"}, 'Z'},
+	{Enum{"Protoss"}, 'P'},
+	{Enum{"Random"}, 'R'},
+	{Enum{"Unknown"}, '-'},
 }
 
 // Named races.
@@ -140,10 +140,10 @@ type Result struct {
 
 // Slice of all results, index used in Details["playerList"]["result"]
 var Results = []*Result{
-	&Result{Enum{"Unknown"}, '-'},
-	&Result{Enum{"Victory"}, 'V'},
-	&Result{Enum{"Defeat"}, 'D'},
-	&Result{Enum{"Tie"}, 'T'},
+	{Enum{"Unknown"}, '-'},
+	{Enum{"Victory"}, 'V'},
+	{Enum{"Defeat"}, 'D'},
+	{Enum{"Tie"}, 'T'},
 }
 
 // Named results.
@@ -171,11 +171,11 @@ type Control struct {
 
 // Slice of all control, index used in InitData["lobbyState"]["slots"]["control"] and in Details["playerList"]["control"]
 var Controls = []*Control{
-	&Control{Enum{"Open"}, "Open"},
-	&Control{Enum{"Closed"}, "Clsd"},
-	&Control{Enum{"Human"}, "Humn"},
-	&Control{Enum{"Computer"}, "Comp"},
-	&Control{Enum{"Unknown"}, ""},
+	{Enum{"Open"}, "Open"},
+	{Enum{"Closed"}, "Clsd"},
+	{Enum{"Human"}, "Humn"},
+	{Enum{"Computer"}, "Comp"},
+	{Enum{"Unknown"}, ""},
 }
 
 // Named controls.
@@ -203,10 +203,10 @@ type Observe struct {
 
 // Slice of all observes, index used in InitData["lobbyState"]["slots"]["observe"] and in Details["playerList"]["observe"]
 var Observes = []*Observe{
-	&Observe{Enum{"Participant"}},
-	&Observe{Enum{"Spectator"}},
-	&Observe{Enum{"Referee"}},
-	&Observe{Enum{"Unknown"}},
+	{Enum{"Participant"}},
+	{Enum{"Spectator"}},
+	{Enum{"Referee"}},
+	{Enum{"Unknown"}},
 }
 
 // Named observes.
@@ -237,22 +237,22 @@ type Color struct {
 
 // Slice of all colors, index used in InitData["lobbyState"]["slots"]["colorPref"]["color"]
 var Colors = []*Color{
-	&Color{Enum: Enum{"Unknown"}, RGB: [3]byte{0, 0, 0}},
-	&Color{Enum: Enum{"Red"}, RGB: [3]byte{180, 20, 30}},
-	&Color{Enum: Enum{"Blue"}, RGB: [3]byte{0, 66, 255}},
-	&Color{Enum: Enum{"Teal"}, RGB: [3]byte{28, 167, 234}},
-	&Color{Enum: Enum{"Purple"}, RGB: [3]byte{84, 0, 129}},
-	&Color{Enum: Enum{"Yellow"}, RGB: [3]byte{235, 225, 41}},
-	&Color{Enum: Enum{"Orange"}, RGB: [3]byte{254, 138, 14}},
-	&Color{Enum: Enum{"Green"}, RGB: [3]byte{22, 128, 0}},
-	&Color{Enum: Enum{"Light Pink"}, RGB: [3]byte{204, 166, 252}},
-	&Color{Enum: Enum{"Violet"}, RGB: [3]byte{31, 1, 201}},
-	&Color{Enum: Enum{"Light Gray"}, RGB: [3]byte{82, 84, 148}},
-	&Color{Enum: Enum{"Dark Green"}, RGB: [3]byte{16, 98, 70}},
-	&Color{Enum: Enum{"Brown"}, RGB: [3]byte{78, 42, 4}},
-	&Color{Enum: Enum{"Light Green"}, RGB: [3]byte{150, 255, 145}},
-	&Color{Enum: Enum{"Dark Gray"}, RGB: [3]byte{35, 35, 35}},
-	&Color{Enum: Enum{"Pink"}, RGB: [3]byte{229, 91, 176}},
+	{Enum: Enum{"Unknown"}, RGB: [3]byte{0, 0, 0}},
+	{Enum: Enum{"Red"}, RGB: [3]byte{180, 20, 30}},
+	{Enum: Enum{"Blue"}, RGB: [3]byte{0, 66, 255}},
+	{Enum: Enum{"Teal"}, RGB: [3]byte{28, 167, 234}},
+	{Enum: Enum{"Purple"}, RGB: [3]byte{84, 0, 129}},
+	{Enum: Enum{"Yellow"}, RGB: [3]byte{235, 225, 41}},
+	{Enum: Enum{"Orange"}, RGB: [3]byte{254, 138, 14}},
+	{Enum: Enum{"Green"}, RGB: [3]byte{22, 128, 0}},
+	{Enum: Enum{"Light Pink"}, RGB: [3]byte{204, 166, 252}},
+	{Enum: Enum{"Violet"}, RGB: [3]byte{31, 1, 201}},
+	{Enum: Enum{"Light Gray"}, RGB: [3]byte{82, 84, 148}},
+	{Enum: Enum{"Dark Green"}, RGB: [3]byte{16, 98, 70}},
+	{Enum: Enum{"Brown"}, RGB: [3]byte{78, 42, 4}},
+	{Enum: Enum{"Light Green"}, RGB: [3]byte{150, 255, 145}},
+	{Enum: Enum{"Dark Gray"}, RGB: [3]byte{35, 35, 35}},
+	{Enum: Enum{"Pink"}, RGB: [3]byte{229, 91, 176}},
 }
 
 func init() {
@@ -301,15 +301,15 @@ type League struct {
 
 // Slice of all leagues.
 var Leagues = []*League{
-	&League{Enum{"Unknown"}, '-'},
-	&League{Enum{"Bronze"}, 'B'},
-	&League{Enum{"Silver"}, 'S'},
-	&League{Enum{"Gold"}, 'G'},
-	&League{Enum{"Platinum"}, 'P'},
-	&League{Enum{"Diamond"}, 'D'},
-	&League{Enum{"Master"}, 'M'},
-	&League{Enum{"Grandmaster"}, 'R'},
-	&League{Enum{"Unranked"}, 'U'},
+	{Enum{"Unknown"}, '-'},
+	{Enum{"Bronze"}, 'B'},
+	{Enum{"Silver"}, 'S'},
+	{Enum{"Gold"}, 'G'},
+	{Enum{"Platinum"}, 'P'},
+	{Enum{"Diamond"}, 'D'},
+	{Enum{"Master"}, 'M'},
+	{Enum{"Grandmaster"}, 'R'},
+	{Enum{"Unranked"}, 'U'},
 }
 
 // Named leagues.
@@ -342,16 +342,16 @@ type BnetLang struct {
 
 // Slice of all Battle.net languages.
 var BnetLangs = []*BnetLang{
-	&BnetLang{Enum{"English"}, "en"},
-	&BnetLang{Enum{"Chinese (Traditional)"}, "zn"},
-	&BnetLang{Enum{"French"}, "fr"},
-	&BnetLang{Enum{"German"}, "de"},
-	&BnetLang{Enum{"Italian"}, "it"},
-	&BnetLang{Enum{"Korean"}, "ko"},
-	&BnetLang{Enum{"Polish"}, "pl"},
-	&BnetLang{Enum{"Portuguese"}, "pt"},
-	&BnetLang{Enum{"Russian"}, "ru"},
-	&BnetLang{Enum{"Spanish"}, "es"},
+	{Enum{"English"}, "en"},
+	{Enum{"Chinese (Traditional)"}, "zn"},
+	{Enum{"French"}, "fr"},
+	{Enum{"German"}, "de"},
+	{Enum{"Italian"}, "it"},
+	{Enum{"Korean"}, "ko"},
+	{Enum{"Polish"}, "pl"},
+	{Enum{"Portuguese"}, "pt"},
+	{Enum{"Russian"}, "ru"},
+	{Enum{"Spanish"}, "es"},
 }
 
 // Named Battle.net languages.
@@ -375,15 +375,15 @@ type Realm struct {
 
 // Slice of all realms.
 var Realms = []*Realm{
-	&Realm{Enum{"North America"}},
-	&Realm{Enum{"Latin America"}},
-	&Realm{Enum{"China"}},
-	&Realm{Enum{"Europe"}},
-	&Realm{Enum{"Russia"}},
-	&Realm{Enum{"Korea"}},
-	&Realm{Enum{"Taiwan"}},
-	&Realm{Enum{"SEA"}},
-	&Realm{Enum{"Unknown"}},
+	{Enum{"North America"}},
+	{Enum{"Latin America"}},
+	{Enum{"China"}},
+	{Enum{"Europe"}},
+	{Enum{"Russia"}},
+	{Enum{"Korea"}},
+	{Enum{"Taiwan"}},
+	{Enum{"SEA"}},
+	{Enum{"Unknown"}},
 }
 
 // Named realms.
@@ -411,25 +411,25 @@ type Region struct {
 
 // Slice of all regions, index used in Details["playerList"]["toon"]["region"]
 var Regions = []*Region{
-	&Region{Enum{"Unknown"}, "", mustPU("http://unknown.depot.battle.net:1119/"), mustPU("http://unknown.battle.net/"),
+	{Enum{"Unknown"}, "", mustPU("http://unknown.depot.battle.net:1119/"), mustPU("http://unknown.battle.net/"),
 		[]*Realm{},
 		[]*BnetLang{BnetLangEnglish}},
-	&Region{Enum{"US"}, "US", mustPU("http://usb.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
+	{Enum{"US"}, "US", mustPU("http://usb.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
 		[]*Realm{RealmNorthAmerica, RealmLatinAmerica},
 		[]*BnetLang{BnetLangEnglish, BnetLangSpanish, BnetLangPortuguese}},
-	&Region{Enum{"Europe"}, "EU", mustPU("http://eub.depot.battle.net:1119/"), mustPU("http://eu.battle.net/"),
+	{Enum{"Europe"}, "EU", mustPU("http://eub.depot.battle.net:1119/"), mustPU("http://eu.battle.net/"),
 		[]*Realm{RealmEurope, RealmRussia},
 		[]*BnetLang{BnetLangEnglish, BnetLangGerman, BnetLangFrench, BnetLangSpanish, BnetLangRussian, BnetLangItalian, BnetLangPolish}},
-	&Region{Enum{"Korea"}, "KR", mustPU("http://krb.depot.battle.net:1119/"), mustPU("http://kr.battle.net/"),
+	{Enum{"Korea"}, "KR", mustPU("http://krb.depot.battle.net:1119/"), mustPU("http://kr.battle.net/"),
 		[]*Realm{RealmKorea, RealmTaiwan},
 		[]*BnetLang{BnetLangKorean, BnetLangChineseTraditional}},
-	&Region{Enum{"China"}, "CN", mustPU("http://cnb.depot.battle.net:1119/"), mustPU("http://www.battlenet.com.cn/"),
+	{Enum{"China"}, "CN", mustPU("http://cnb.depot.battle.net:1119/"), mustPU("http://www.battlenet.com.cn/"),
 		[]*Realm{RealmChina},
 		[]*BnetLang{BnetLangChineseTraditional}},
-	&Region{Enum{"SEA"}, "SG", mustPU("http://sg.depot.battle.net:1119/"), mustPU("http://sea.battle.net/"),
+	{Enum{"SEA"}, "SG", mustPU("http://sg.depot.battle.net:1119/"), mustPU("http://sea.battle.net/"),
 		[]*Realm{RealmSEA},
 		[]*BnetLang{BnetLangEnglish}},
-	&Region{Enum{"Public Test"}, "XX", mustPU("http://xx.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
+	{Enum{"Public Test"}, "XX", mustPU("http://xx.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
 		[]*Realm{},
 		[]*BnetLang{BnetLangEnglish}},
 }

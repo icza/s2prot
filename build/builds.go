@@ -12,10 +12,10 @@ package build
 
 // Holds the python sources mapped from base build.
 // In case of identical build specs,
-// this only contains entry for the oldest base build number. 
+// this only contains entry for the oldest base build number.
 var Builds = make(map[int]string)
 
 // Holds duplicates / identical build specs.
 // Key is a (newer) base build number, value is an older build number.
-// In case of duplicates, Builds only contains entry for the oldest base build number. 
-var Duplicates = make(map[int]int) 
+// In case of duplicates, Builds only contains entry for the oldest base build number.
+var Duplicates = make(map[int]int)
