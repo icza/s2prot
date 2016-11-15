@@ -1,6 +1,6 @@
 # s2prot
 
-[![GoDoc](https://godoc.org/github.com/icza/s2prot?status.svg)](https://godoc.org/github.com/icza/s2prot)
+[![GoDoc](https://godoc.org/github.com/icza/s2prot?status.svg)](https://godoc.org/github.com/icza/s2prot) [![Build Status](https://travis-ci.org/icza/s2prot.svg?branch=master)](https://travis-ci.org/icza/s2prot)
 
 Package `s2prot` is a decoder/parser of Blizzard's StarCraft II replay file format (*.SC2Replay).
 
@@ -62,7 +62,7 @@ Output:
 		Name: <9KingS>DakotaFannin, Race: P, Team: 2, Result: Victory
 
 Tip: the `Struct` type defines a `String()` method which returns a nicely formatted JSON representation;
-this is what most type are "made of": 
+this is what most type are "made of":
 
 	fmt.Printf("Full Header:\n%v\n", r.Header)
 
@@ -100,13 +100,13 @@ The below example code can be found in https://github.com/icza/s2prot/blob/maste
 To use `s2prot`, we need an MPQ parser to get content from a replay.
 
 	import "github.com/icza/mpq"
-	
+
 	m, err := mpq.NewFromFile("../../mpq/reps/automm.SC2Replay")
 	if err != nil {
 		panic(err)
 	}
 	defer m.Close()
-	
+
 Replay header (which is the MPQ User Data) can be decoded by `s2prot.DecodeHeader()`. Printing replay version:
 
 	header := s2prot.DecodeHeader(m.UserData())
@@ -138,7 +138,7 @@ Which can now be used to decode all other info in the replay. To decode the Deta
 	fmt.Println("Map name:", details.Stringv("title"))
 	// Output: "Map name: Hills of Peshkov"
 
-Tip: We can of course print the whole decoded `header` which is a `Struct`: 
+Tip: We can of course print the whole decoded `header` which is a `Struct`:
 
 	fmt.Printf("Full Header:\n%v\n", header)
 
