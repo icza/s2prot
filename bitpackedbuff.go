@@ -92,21 +92,21 @@ func (b *bitPackedBuff) readBits(n byte) int64 {
 			return b.readBitsBigByte(n)
 		}
 		return b.readBitsBig(n)
-	} else {
-		// Highly optimized case for cache being empty and n being multiple of 8.
-		// Actually this is true 100% of the cases (little endian is only used to decode attributes events).
-		if n&0x07 == 0 && b.cacheBits == 0 {
-			// Remember: n > 0 (n == 0 is already handled)
-			value := int64(b.contents[b.idx])
-			b.idx++
-			for i := byte(8); i < n; i += 8 {
-				value |= int64(b.contents[b.idx]) << i
-				b.idx++
-			}
-			return value
-		}
-		return b.readBitsLittle(n)
 	}
+
+	// Highly optimized case for cache being empty and n being multiple of 8.
+	// Actually this is true 100% of the cases (little endian is only used to decode attributes events).
+	if n&0x07 == 0 && b.cacheBits == 0 {
+		// Remember: n > 0 (n == 0 is already handled)
+		value := int64(b.contents[b.idx])
+		b.idx++
+		for i := byte(8); i < n; i += 8 {
+			value |= int64(b.contents[b.idx]) << i
+			b.idx++
+		}
+		return value
+	}
+	return b.readBitsLittle(n)
 }
 
 // readBitsBigByte returns a number constructed from the next n bits, using big-endian byte order.
@@ -167,7 +167,7 @@ func (b *bitPackedBuff) readBitsBig(n byte) (value int64) {
 // readBitsLittle returns a number constructed from the next n bits, using little-endian byte order.
 // Here n is not allowed to be 0.
 func (b *bitPackedBuff) readBitsLittle(n byte) (value int64) {
-	var valueBits byte = 0 // Bits already set in value
+	var valueBits byte // Bits already set in value
 	for {
 		if b.cacheBits == 0 {
 			b.cache = b.contents[b.idx]

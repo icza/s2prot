@@ -123,9 +123,8 @@ func readVarInt(b *bitPackedBuff) int64 {
 		if (data & 0x80) == 0 {
 			if value&0x01 > 0 {
 				return -(value >> 1)
-			} else {
-				return value >> 1
 			}
+			return value >> 1
 		}
 	}
 }
