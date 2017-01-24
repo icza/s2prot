@@ -34,7 +34,7 @@ func (d *Details) IsBlizzardMap() bool {
 
 // GameSpeed returns the game speed.
 func (d *Details) GameSpeed() *GameSpeed {
-	return gameSpeedById(d.Int("gameSpeed"))
+	return gameSpeedByID(d.Int("gameSpeed"))
 }
 
 // ThumbnailFile returns the map thumbnail file name.
@@ -153,15 +153,15 @@ func (p *Player) Race() *Race {
 	return p.race
 }
 
-// TeamId returns the team id.
-// Not always accurate! Team id from slot (init data) should be used instead!
-func (p *Player) TeamId() int64 {
+// TeamID returns the team ID.
+// Not always accurate! Team ID from slot (init data) should be used instead!
+func (p *Player) TeamID() int64 {
 	return p.Int("teamId")
 }
 
 // Result returns the game result.
 func (p *Player) Result() *Result {
-	return resultById(p.Int("result"))
+	return resultByID(p.Int("result"))
 }
 
 // Handicap returns the handicap.
@@ -169,20 +169,20 @@ func (p *Player) Handicap() int64 {
 	return p.Int("handicap")
 }
 
-// WorkingSetSlotId returns the working set slot id.
-func (p *Player) WorkingSetSlotId() int64 {
+// WorkingSetSlotID returns the working set slot ID.
+func (p *Player) WorkingSetSlotID() int64 {
 	return p.Int("workingSetSlotId")
 }
 
 // Control returns the control.
 func (p *Player) Control() *Control {
-	return controlById(p.Int("control"))
+	return controlByID(p.Int("control"))
 }
 
 // Observe returns the observe.
 // Not always accurate! Observe from slot (init data) should be used instead!
 func (p *Player) Observe() *Observe {
-	return observeById(p.Int("observe"))
+	return observeByID(p.Int("observe"))
 }
 
 // Hero returns the hero.
@@ -195,13 +195,13 @@ type Toon struct {
 	s2prot.Struct
 }
 
-// Id returns the id.
-func (t *Toon) Id() int64 {
+// ID returns the ID.
+func (t *Toon) ID() int64 {
 	return t.Int("id")
 }
 
-// ProgramId returns the program id, always "S2", leading zeros will be stripped.
-func (t *Toon) ProgramId() string {
+// ProgramID returns the program ID, always "S2", leading zeros will be stripped.
+func (t *Toon) ProgramID() string {
 	// always "\0\0S2", strip leading zeros
 	s := t.Stringv("programId")
 	for i := 0; i < len(s); i++ {
@@ -212,24 +212,24 @@ func (t *Toon) ProgramId() string {
 	return s
 }
 
-// RealmId returns the realm id.
-func (t *Toon) RealmId() int64 {
+// RealmID returns the realm ID.
+func (t *Toon) RealmID() int64 {
 	return t.Int("realm")
 }
 
 // Realm returns the realm.
 func (t *Toon) Realm() *Realm {
-	return t.Region().Realm(t.RealmId())
+	return t.Region().Realm(t.RealmID())
 }
 
-// RegionId returns the region id.
-func (t *Toon) RegionId() int64 {
+// RegionID returns the region ID.
+func (t *Toon) RegionID() int64 {
 	return t.Int("region")
 }
 
 // Region returns the region.
 func (t *Toon) Region() *Region {
-	return regionById(t.RegionId())
+	return regionByID(t.RegionID())
 }
 
 // String returns a string representation of the Toon, the same format as used in
@@ -238,5 +238,5 @@ func (t *Toon) Region() *Region {
 //     regionId-programId-reamId-playerId
 // Using value receiver as Player.Toon is not a pointer (and so printing Player.Toon will call this method).
 func (t Toon) String() string {
-	return fmt.Sprintf("%d-%s-%d-%d", t.RegionId(), t.ProgramId(), t.RealmId(), t.Id())
+	return fmt.Sprintf("%d-%s-%d-%d", t.RegionID(), t.ProgramID(), t.RealmID(), t.ID())
 }

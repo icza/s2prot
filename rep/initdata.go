@@ -344,8 +344,8 @@ func (l *LobbyState) GameDuration() int64 {
 	return l.Int("gameDuration")
 }
 
-// HostUserId returns the host user id.
-func (l *LobbyState) HostUserId() int64 {
+// HostUserID returns the host user ID.
+func (l *LobbyState) HostUserID() int64 {
 	return l.Int("hostUserId")
 }
 
@@ -391,12 +391,12 @@ func (s *Slot) AIBuild() int64 {
 
 // ColorPrefColor returns the color preference color.
 func (s *Slot) ColorPrefColor() *Color {
-	return colorById(s.Int("colorPref", "color"))
+	return colorByID(s.Int("colorPref", "color"))
 }
 
 // Control returns the control.
 func (s *Slot) Control() *Control {
-	return controlById(s.Int("control"))
+	return controlByID(s.Int("control"))
 }
 
 // Difficulty returns the difficulty.
@@ -420,19 +420,19 @@ func (s *Slot) LogoIndex() int64 {
 	return s.Int("logoIndex")
 }
 
-// TandemId returns the tandem id.
-func (s *Slot) TandemId() int64 {
+// TandemID returns the tandem ID.
+func (s *Slot) TandemID() int64 {
 	return s.Int("tandemId")
 }
 
-// TandemLeaderUserId returns the tandem leader user id (in case of Archon mode games).
-func (s *Slot) TandemLeaderUserId() int64 {
+// TandemLeaderUserID returns the tandem leader user ID (in case of Archon mode games).
+func (s *Slot) TandemLeaderUserID() int64 {
 	return s.Int("tandemLeaderUserId")
 }
 
 // Observe returns the observe.
 func (s *Slot) Observe() *Observe {
-	return observeById(s.Int("observe"))
+	return observeByID(s.Int("observe"))
 }
 
 // RacePrefRace returns the race preference race. This may be RaceRandom.
@@ -443,7 +443,7 @@ func (s *Slot) RacePrefRace() *Race {
 			return RaceRandom
 		}
 		if i, ok := r.(int64); ok {
-			return raceById(i)
+			return raceByID(i)
 		}
 	}
 
@@ -456,8 +456,8 @@ func (s *Slot) Rewards() []interface{} {
 	return s.Array("rewards")
 }
 
-// TeamId returns the team id.
-func (s *Slot) TeamId() int64 {
+// TeamID returns the team ID.
+func (s *Slot) TeamID() int64 {
 	return s.Int("teamId")
 }
 
@@ -466,13 +466,13 @@ func (s *Slot) ToonHandle() string {
 	return s.Stringv("toonHandle")
 }
 
-// UserId returns the user id.
-func (s *Slot) UserId() int64 {
+// UserID returns the user ID.
+func (s *Slot) UserID() int64 {
 	return s.Int("userId")
 }
 
-// WorkingSetSlotId returns the working set slot id.
-func (s *Slot) WorkingSetSlotId() int64 {
+// WorkingSetSlotID returns the working set slot ID.
+func (s *Slot) WorkingSetSlotID() int64 {
 	return s.Int("workingSetSlotId")
 }
 
@@ -554,7 +554,7 @@ func (u *UserInitData) Examine() bool {
 func (u *UserInitData) HighestLeague() *League {
 	// If property doesn't exist, zero value 0 is returned which is LeagueUnknown
 	// which is exactly we would return anyway, so simply:
-	return leagueById(u.Int("highestLeague"))
+	return leagueByID(u.Int("highestLeague"))
 }
 
 // Name returns the name.
@@ -564,7 +564,7 @@ func (u *UserInitData) Name() string {
 
 // Observe returns the observe.
 func (u *UserInitData) Observe() *Observe {
-	return observeById(u.Int("observe"))
+	return observeByID(u.Int("observe"))
 }
 
 // RacePreferenceRace returns the race preference race.

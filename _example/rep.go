@@ -6,6 +6,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/icza/s2prot/rep"
 )
 
@@ -13,7 +14,7 @@ func main() {
 	//r, err := rep.NewFromFileEvts("../../mpq/reps/automm.SC2Replay", true, true, true)
 	r, err := rep.NewFromFile("../../mpq/reps/lotv.SC2Replay")
 	if err != nil {
-		fmt.Println("%v\n", err)
+		fmt.Printf("Failed to open file: %v\n", err)
 		return
 	}
 	defer r.Close()

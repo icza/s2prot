@@ -52,10 +52,10 @@ var (
 	GameSpeedUnknown = GameSpeeds[5]
 )
 
-// gameSpeedById returns the GameSpeed specified by its id.
-// GameSpeedUnknown is returned if id is unknown.
-func gameSpeedById(gameSpeedId int64) *GameSpeed {
-	if id := int(gameSpeedId); id >= 0 && id < len(GameSpeeds) {
+// gameSpeedByID returns the GameSpeed specified by its ID.
+// GameSpeedUnknown is returned if ID is unknown.
+func gameSpeedByID(gameSpeedID int64) *GameSpeed {
+	if id := int(gameSpeedID); id >= 0 && id < len(GameSpeeds) {
 		return GameSpeeds[id]
 	}
 	return GameSpeedUnknown
@@ -123,10 +123,10 @@ func raceFromLocalString(s string) *Race {
 	}
 }
 
-// raceById returns the Race specified by its id.
-// RaceUnknown is returned if id is unknown.
-func raceById(raceId int64) *Race {
-	if id := int(raceId); id >= 0 && id < len(Races) {
+// raceByID returns the Race specified by its ID.
+// RaceUnknown is returned if ID is unknown.
+func raceByID(raceID int64) *Race {
+	if id := int(raceID); id >= 0 && id < len(Races) {
 		return Races[id]
 	}
 	return RaceUnknown
@@ -154,10 +154,10 @@ var (
 	ResultTie     = Results[3]
 )
 
-// resultById returns the Result specified by its id.
-// ResultUnknown is returned if id is unknown.
-func resultById(resultId int64) *Result {
-	if id := int(resultId); id >= 0 && id < len(Results) {
+// resultByID returns the Result specified by its ID.
+// ResultUnknown is returned if ID is unknown.
+func resultByID(resultID int64) *Result {
+	if id := int(resultID); id >= 0 && id < len(Results) {
 		return Results[id]
 	}
 	return ResultUnknown
@@ -187,10 +187,10 @@ var (
 	ControlUnknown  = Controls[4]
 )
 
-// controlById returns the Control specified by its id.
-// ControlUnknown is returned if id is unknown.
-func controlById(controlId int64) *Control {
-	if id := int(controlId); id >= 0 && id < len(Controls) {
+// controlByID returns the Control specified by its ID.
+// ControlUnknown is returned if ID is unknown.
+func controlByID(controlID int64) *Control {
+	if id := int(controlID); id >= 0 && id < len(Controls) {
 		return Controls[id]
 	}
 	return ControlUnknown
@@ -217,10 +217,10 @@ var (
 	ObserveUnknown     = Observes[3]
 )
 
-// observeById returns the Observe specified by its id.
-// ObserveUnknown is returned if id is unknown.
-func observeById(observeId int64) *Observe {
-	if id := int(observeId); id >= 0 && id < len(Observes) {
+// observeByID returns the Observe specified by its ID.
+// ObserveUnknown is returned if ID is unknown.
+func observeByID(observeID int64) *Observe {
+	if id := int(observeID); id >= 0 && id < len(Observes) {
 		return Observes[id]
 	}
 	return ObserveUnknown
@@ -284,10 +284,10 @@ var (
 	ColorPink       = Colors[15]
 )
 
-// colorById returns the Color specified by its id.
-// ColorUnknown is returned if id is unknown.
-func colorById(colorId int64) *Color {
-	if id := int(colorId); id >= 0 && id < len(Colors) {
+// colorByID returns the Color specified by its ID.
+// ColorUnknown is returned if ID is unknown.
+func colorByID(colorID int64) *Color {
+	if id := int(colorID); id >= 0 && id < len(Colors) {
 		return Colors[id]
 	}
 	return ColorUnknown
@@ -325,10 +325,10 @@ var (
 	LeagueUnranked    = Leagues[8]
 )
 
-// leagueById returns the League specified by its id.
-// LeagueUnknown is returned if id is unknown.
-func leagueById(leagueId int64) *League {
-	if id := int(leagueId); id >= 0 && id < len(Leagues) {
+// leagueByID returns the League specified by its ID.
+// LeagueUnknown is returned if ID is unknown.
+func leagueByID(leagueID int64) *League {
+	if id := int(leagueID); id >= 0 && id < len(Leagues) {
 		return Leagues[id]
 	}
 	return LeagueUnknown
@@ -444,8 +444,8 @@ func mustPU(rawurl string) *url.URL {
 }
 
 // Realm returns the realm of the region specified by its code.
-func (r *Region) Realm(realmId int64) *Realm {
-	if id := int(realmId) - 1; id >= 0 && id < len(r.Realms) {
+func (r *Region) Realm(realmID int64) *Realm {
+	if id := int(realmID) - 1; id >= 0 && id < len(r.Realms) {
 		return r.Realms[id]
 	}
 	return RealmUnknown
@@ -481,10 +481,10 @@ func regionByCode(code string) *Region {
 	return RegionUnknown
 }
 
-// regionById returns the Region specified by its id.
-// RegionUnknown is returned if id is unknown.
-func regionById(regionId int64) *Region {
-	if id := int(regionId); id >= 0 && id < len(Regions) {
+// regionByID returns the Region specified by its ID.
+// RegionUnknown is returned if ID is unknown.
+func regionByID(regionID int64) *Region {
+	if id := int(regionID); id >= 0 && id < len(Regions) {
 		return Regions[id]
 	}
 	return RegionUnknown
