@@ -210,7 +210,8 @@ func (s *Struct) Value(path ...string) interface{} {
 		return nil
 	}
 
-	ss, ok := *s, false
+	var ok bool
+	ss := *s
 
 	last := len(path) - 1
 	for i := 0; i < last; i++ {
@@ -299,8 +300,8 @@ func (e *Event) Loop() int64 {
 	return e.Int("loop")
 }
 
-// UserId returns the id of the user that issued the event.
-func (e *Event) UserId() int64 {
+// UserID returns the ID of the user that issued the event.
+func (e *Event) UserID() int64 {
 	return e.Int("userid")
 }
 

@@ -32,7 +32,7 @@ func init() {
 
 // EvtType describes a named event data structure type.
 type EvtType struct {
-	Id     int    // Id of the event
+	ID     int    // Id of the event
 	Name   string // Name of the event
 	typeid int    // Type id of the event data structure
 }
@@ -171,7 +171,7 @@ func parseProtocol(src string, baseBuild int) *Protocol {
 			}
 			e := EvtType{}
 			i := strings.IndexByte(line, ':')
-			e.Id, err = strconv.Atoi(strings.TrimSpace(line[:i]))
+			e.ID, err = strconv.Atoi(strings.TrimSpace(line[:i]))
 			if err != nil {
 				panic(err)
 			}
@@ -186,9 +186,9 @@ func parseProtocol(src string, baseBuild int) *Protocol {
 			line = line[i:]
 			i = strings.IndexByte(line, '\'')
 			e.Name = line[len(stripPref) : i-len(stripPost)]
-			em[e.Id] = e
-			if e.Id > maxEid {
-				maxEid = e.Id
+			em[e.ID] = e
+			if e.ID > maxEid {
+				maxEid = e.ID
 			}
 		}
 
@@ -394,7 +394,7 @@ func (p *Protocol) DecodeTrackerEvts(contents []byte) ([]Event, error) {
 
 // decodeEvts decodes a series of events.
 // In case of a decoding error, successfully decoded events are still returned along with an error.
-func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decUserId bool) (events []Event, err error) {
+func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decUserID bool) (events []Event, err error) {
 	deltaTypeid := p.svaruint32Typeid    // Local var for efficiency
 	useridTypeid := p.replayUseridTypeid // Local var for efficiency
 
@@ -421,7 +421,7 @@ func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decU
 			loop += v.(int64)
 		}
 
-		if decUserId {
+		if decUserID {
 			userid = d.instance(useridTypeid)
 		}
 
@@ -434,7 +434,7 @@ func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decU
 		e.Struct["id"] = evtid
 		e.Struct["name"] = evtType.Name
 		e.Struct["loop"] = loop
-		if decUserId {
+		if decUserID {
 			e.Struct["userid"] = userid
 		}
 
