@@ -8,9 +8,10 @@ package rep
 
 import (
 	"errors"
+	"io"
+
 	"github.com/icza/mpq"
 	"github.com/icza/s2prot"
-	"io"
 )
 
 var (
@@ -33,7 +34,7 @@ type Rep struct {
 
 	Header   Header        // Replay header (replay game version and length)
 	Details  Details       // Game details (overall replay details)
-	InitData InitData      // Replay init data (the inital lobby)
+	InitData InitData      // Replay init data (the initial lobby)
 	AttrEvts s2prot.Struct // Attributes events
 
 	GameEvts    []s2prot.Event // Game events
@@ -45,7 +46,7 @@ type Rep struct {
 	TrackerEvtsErr bool // Tells if decoding tracker events had errors
 }
 
-// NewFromFile returns a new Rep construted from a file.
+// NewFromFile returns a new Rep constructed from a file.
 // All types of events are decoded from the replay.
 // The returned Rep must be closed with the Close method!
 //
@@ -58,7 +59,7 @@ func NewFromFile(name string) (*Rep, error) {
 	return NewFromFileEvts(name, true, true, true)
 }
 
-// NewFromFileEvts returns a new Rep construted from a file, only the specified types of events decoded.
+// NewFromFileEvts returns a new Rep constructed from a file, only the specified types of events decoded.
 // The game, message and tracker tells if game events, message events and tracker events are to be decoded.
 // Replay header, init data, details and attributes events are always decoded.
 // The returned Rep must be closed with the Close method!
@@ -107,7 +108,7 @@ func NewEvts(input io.ReadSeeker, game, message, tracker bool) (*Rep, error) {
 	return newRep(m, game, message, tracker)
 }
 
-// newRep returns a new Rep construted using the specified mpq.MPQ handler of the SC2Replay file, only the specified types of events decoded.
+// newRep returns a new Rep constructed using the specified mpq.MPQ handler of the SC2Replay file, only the specified types of events decoded.
 // The game, message and tracker tells if game events, message events and tracker events are to be decoded.
 // Replay header, init data, details and attributes events are always decoded.
 // The returned Rep must be closed with the Close method!

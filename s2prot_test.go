@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetProtocol(t *testing.T) {
-	for baseBuild, _ := range build.Builds {
+	for baseBuild := range build.Builds {
 		p := GetProtocol(baseBuild)
 		if p == nil {
 			t.Errorf("Parsing protocol %d failed!", baseBuild)

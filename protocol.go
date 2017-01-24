@@ -9,11 +9,12 @@ package s2prot
 import (
 	"bufio"
 	"fmt"
-	"github.com/icza/s2prot/build"
 	"log"
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/icza/s2prot/build"
 )
 
 // Default base build to be used to decode replay headers (any can be used).
@@ -58,7 +59,7 @@ type Protocol struct {
 
 	replayHeaderTypeid   int // The typeid of NNet.Replay.SHeader (the type used to store replay game version and length)
 	gameDetailsTypeid    int // The typeid of NNet.Game.SDetails (the type used to store overall replay details)
-	replayInitdataTypeid int // The typeid of NNet.Replay.SInitData (the type used to store the inital lobby)
+	replayInitdataTypeid int // The typeid of NNet.Replay.SInitData (the type used to store the initial lobby)
 }
 
 var (
