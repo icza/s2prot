@@ -8,9 +8,10 @@ package rep
 
 import (
 	"fmt"
-	"github.com/icza/s2prot"
 	"strings"
 	"time"
+
+	"github.com/icza/s2prot"
 )
 
 // Details describles the game details (overall replay details).

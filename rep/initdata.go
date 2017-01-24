@@ -10,7 +10,7 @@ import (
 	"github.com/icza/s2prot"
 )
 
-// InitData describes the init data (the inital lobby).
+// InitData describes the init data (the initial lobby).
 type InitData struct {
 	s2prot.Struct
 
