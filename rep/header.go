@@ -8,8 +8,9 @@ package rep
 
 import (
 	"fmt"
-	"github.com/icza/s2prot"
 	"time"
+
+	"github.com/icza/s2prot"
 )
 
 // Header describes the replay header (replay game version and length).

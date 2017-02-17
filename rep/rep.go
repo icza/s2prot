@@ -16,14 +16,14 @@ import (
 
 var (
 	// ErrInvalidRepFile means invalid replay file.
-	ErrInvalidRepFile = errors.New("Invalid SC2Replay file!")
+	ErrInvalidRepFile = errors.New("Invalid SC2Replay file")
 
 	// ErrUnsupportedRepVersion means the replay file is valid but its version is not supported.
-	ErrUnsupportedRepVersion = errors.New("Unsupported replay version!")
+	ErrUnsupportedRepVersion = errors.New("Unsupported replay version")
 
 	// ErrDecoding means decoding the replay file failed,
 	// Most likely because replay file is invalid, but also might be due to an implementation bug
-	ErrDecoding = errors.New("Decoding error!")
+	ErrDecoding = errors.New("Decoding error")
 )
 
 // Rep describes a replay.
