@@ -12,6 +12,8 @@ such as [github.com/icza/mpq](https://github.com/icza/mpq).
 
 The package is safe for concurrent use.
 
+_Check out the sister project to parse StarCraft: Brood War replays: [screp](https://github.com/icza/screp)_
+
 ## High-level Usage
 
 [![GoDoc](https://godoc.org/github.com/icza/s2prot/rep?status.svg)](https://godoc.org/github.com/icza/s2prot/rep)
