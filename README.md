@@ -14,6 +14,24 @@ The package is safe for concurrent use.
 
 _Check out the sister project to parse StarCraft: Brood War replays: [screp](https://github.com/icza/screp)_
 
+## Using the `s2prot` CLI app
+
+There is a command line application in the [cmd/s2prot](https://github.com/icza/s2prot/tree/master/cmd/s2prot) folder
+which can be used to parse and display information about a single replay file.
+
+The extracted data is displayed using JSON representation.
+
+Usage is as simple as:
+
+	s2prot [FLAGS] repfile.SC2Replay
+
+Run with `-h` to see a list of available flags.
+
+Example to parse a file called `sample.SC2Replay`, and display replay header (included by default)
+and replay details:
+
+	s2prot -details=true sample.SC2Relay
+
 ## High-level Usage
 
 [![GoDoc](https://godoc.org/github.com/icza/s2prot/rep?status.svg)](https://godoc.org/github.com/icza/s2prot/rep)
