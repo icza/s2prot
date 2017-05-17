@@ -237,6 +237,13 @@ func (s *Struct) Int(path ...string) (v int64) {
 	return
 }
 
+// Float returns the floating point number specified by the path.
+// zero value is returned if path is invalid.
+func (s *Struct) Float(path ...string) (v float64) {
+	v, _ = s.Value(path...).(float64)
+	return
+}
+
 // Bool returns the bool specified by the path.
 // zero value is returned if path is invalid.
 func (s *Struct) Bool(path ...string) (v bool) {

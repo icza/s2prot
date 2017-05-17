@@ -7,6 +7,7 @@ The Rep type that models a replay (and everything in it).
 package rep
 
 import (
+	"encoding/json"
 	"errors"
 	"io"
 
@@ -36,6 +37,8 @@ type Rep struct {
 	Details  Details       // Game details (overall replay details)
 	InitData InitData      // Replay init data (the initial lobby)
 	AttrEvts s2prot.Struct // Attributes events
+
+	Metadata Metadata // Game metadata (calculated, confirmed results)
 
 	GameEvts    []s2prot.Event // Game events
 	MessageEvts []s2prot.Event // Message events
@@ -164,6 +167,16 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 		return nil, ErrInvalidRepFile
 	}
 	rep.AttrEvts = p.DecodeAttributesEvts(data)
+
+	data, err = m.FileByHash(3675439372, 3912155403, 1108615308) // "replay.gamemetadata.json"
+	if err != nil {
+		return nil, ErrInvalidRepFile
+	}
+	if data != nil { // Might not be present, was added around 3.10-3.11.
+		if err = json.Unmarshal(data, &rep.Metadata.Struct); err != nil {
+			return nil, ErrInvalidRepFile
+		}
+	}
 
 	if game {
 		data, err = m.FileByHash(496563520, 2864883019, 4101385109) // "replay.game.events"
