@@ -10,7 +10,8 @@ Package `s2prot` is a decoder/parser of Blizzard's StarCraft II replay file form
 `s2prot` processes the "raw" data that can be decoded from replay files using an MPQ parser
 such as [github.com/icza/mpq](https://github.com/icza/mpq).
 
-The package is safe for concurrent use.
+The package is designed to be used by other packages or apps, and is safe for concurrent use.
+There is also an example CLI app that can be used standalone.
 
 _Check out the sister project to parse StarCraft: Brood War replays: [screp](https://github.com/icza/screp)_
 
