@@ -14,9 +14,9 @@ import (
 type InitData struct {
 	s2prot.Struct
 
-	GameDescription GameDescription // Game description
-	LobbyState      LobbyState      // Lobby state
-	UserInitDatas   []UserInitData  // Array User init data structs
+	GameDescription GameDescription `json:"-"` // Game description
+	LobbyState      LobbyState      `json:"-"` // Lobby state
+	UserInitDatas   []UserInitData  `json:"-"` // Array User init data structs
 }
 
 // newInitData creates a new init data from the specified Struct.
