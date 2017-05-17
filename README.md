@@ -32,6 +32,10 @@ and replay details:
 
 	s2prot -details=true sample.SC2Relay
 
+Or simply:
+
+	s2prot -details sample.SC2Relay
+
 ## High-level Usage
 
 [![GoDoc](https://godoc.org/github.com/icza/s2prot/rep?status.svg)](https://godoc.org/github.com/icza/s2prot/rep)
