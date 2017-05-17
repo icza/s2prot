@@ -13,6 +13,8 @@ such as [github.com/icza/mpq](https://github.com/icza/mpq).
 The package is designed to be used by other packages or apps, and is safe for concurrent use.
 There is also an example CLI app that can be used standalone.
 
+Parses all versions that were written with retail versions of StarCraft II (and some beta versions too).
+
 _Check out the sister project to parse StarCraft: Brood War replays: [screp](https://github.com/icza/screp)_
 
 ## Using the `s2prot` CLI app
