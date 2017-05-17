@@ -30,7 +30,7 @@ Usage is as simple as:
 
 Run with `-h` to see a list of available flags.
 
-Example to parse a file called `sample.SC2Replay`, and display replay header (included by default)
+Example to parse a file called `sample.SC2Replay`, and display replay header, game metadata (included by default)
 and replay details:
 
 	s2prot -details=true sample.SC2Relay

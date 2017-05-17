@@ -172,7 +172,7 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	if err != nil {
 		return nil, ErrInvalidRepFile
 	}
-	if data != nil { // Might not be present, was added around 3.10-3.11.
+	if data != nil { // Might not be present, was added around 3.7
 		if err = json.Unmarshal(data, &rep.Metadata.Struct); err != nil {
 			return nil, ErrInvalidRepFile
 		}

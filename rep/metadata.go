@@ -78,7 +78,7 @@ func (m *MetaPlayer) APM() float64 {
 }
 
 // Result returns the result string.
-// "Win" for win, "Loss" for loss.
+// "Win" for win, "Loss" for loss, "Undecided" if unknown.
 func (m *MetaPlayer) Result() string {
 	return m.Stringv("Result")
 }

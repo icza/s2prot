@@ -19,8 +19,9 @@ import (
 var (
 	header      = flag.Bool("header", true, "print replay header")
 	details     = flag.Bool("details", false, "print replay details")
-	initData    = flag.Bool("initdata", false, "print rpelay init data")
+	initData    = flag.Bool("initdata", false, "print replay init data")
 	attrEvts    = flag.Bool("attrevts", false, "print attributes events")
+	metadata    = flag.Bool("metadata", true, "print game metadata")
 	gameEvts    = flag.Bool("gameevts", false, "print game events")
 	msgEvts     = flag.Bool("msgevts", false, "print message events")
 	trackerEvts = flag.Bool("trackerevts", false, "print tracker events")
@@ -55,6 +56,9 @@ func main() {
 	}
 	if !*attrEvts {
 		r.AttrEvts = nil
+	}
+	if !*metadata {
+		r.Metadata.Struct = nil
 	}
 	if !*gameEvts {
 		r.GameEvts = nil
