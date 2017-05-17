@@ -64,7 +64,7 @@ func NewFromFile(name string) (*Rep, error) {
 
 // NewFromFileEvts returns a new Rep constructed from a file, only the specified types of events decoded.
 // The game, message and tracker tells if game events, message events and tracker events are to be decoded.
-// Replay header, init data, details and attributes events are always decoded.
+// Replay header, init data, details, attributes events and game metadata are always decoded.
 // The returned Rep must be closed with the Close method!
 //
 // ErrInvalidRepFile is returned if the specified name does not denote a valid SC2Replay file.
@@ -95,7 +95,7 @@ func New(input io.ReadSeeker) (*Rep, error) {
 
 // NewEvts returns a new Rep using the specified io.ReadSeeker as the SC2Replay file source, only the specified types of events decoded.
 // The game, message and tracker tells if game events, message events and tracker events are to be decoded.
-// Replay header, init data, details and attributes events are always decoded.
+// Replay header, init data, details, attributes events and game metadata are always decoded.
 // The returned Rep must be closed with the Close method!
 //
 // ErrInvalidRepFile is returned if the input is not a valid SC2Replay file content.
@@ -113,7 +113,7 @@ func NewEvts(input io.ReadSeeker, game, message, tracker bool) (*Rep, error) {
 
 // newRep returns a new Rep constructed using the specified mpq.MPQ handler of the SC2Replay file, only the specified types of events decoded.
 // The game, message and tracker tells if game events, message events and tracker events are to be decoded.
-// Replay header, init data, details and attributes events are always decoded.
+// Replay header, init data, details, attributes events and game metadata are always decoded.
 // The returned Rep must be closed with the Close method!
 //
 // ErrInvalidRepFile is returned if the specified name does not denote a valid SC2Replay file.
