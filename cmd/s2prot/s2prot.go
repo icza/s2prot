@@ -38,7 +38,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	r, err := rep.NewFromFile(args[0])
+	r, err := rep.NewFromFileEvts(args[0], *gameEvts, *msgEvts, *trackerEvts)
 	if err != nil {
 		fmt.Printf("Failed to parse replay: %v\n", err)
 		os.Exit(2)
