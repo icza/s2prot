@@ -11,12 +11,22 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"runtime"
 
 	"github.com/icza/s2prot/rep"
 )
 
+const (
+	appName    = "s2prot"
+	appVersion = "v1.0.0"
+	appAuthor  = "Andras Belicza"
+	appHome    = "https://github.com/icza/s2prot"
+)
+
 // Flag variables
 var (
+	version = flag.Bool("version", false, "print version info and exit")
+
 	header      = flag.Bool("header", true, "print replay header")
 	details     = flag.Bool("details", false, "print replay details")
 	initData    = flag.Bool("initdata", false, "print replay init data")
@@ -31,6 +41,11 @@ var (
 
 func main() {
 	flag.Parse()
+
+	if *version {
+		printVersion()
+		return
+	}
 
 	args := flag.Args()
 	if len(args) < 1 {
@@ -75,6 +90,13 @@ func main() {
 		enc.SetIndent("", "  ")
 	}
 	enc.Encode(r)
+}
+
+func printVersion() {
+	fmt.Println(appName, "version:", appVersion)
+	fmt.Println("Platform:", runtime.GOOS, runtime.GOARCH)
+	fmt.Println("Author:", appAuthor)
+	fmt.Println("Home page:", appHome)
 }
 
 func printUsage() {
