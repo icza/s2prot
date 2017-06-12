@@ -13,12 +13,13 @@ import (
 	"os"
 	"runtime"
 
+	"github.com/icza/s2prot"
 	"github.com/icza/s2prot/rep"
 )
 
 const (
 	appName    = "s2prot"
-	appVersion = "v1.0.0"
+	appVersion = "v1.0.1-dev"
 	appAuthor  = "Andras Belicza"
 	appHome    = "https://github.com/icza/s2prot"
 )
@@ -94,6 +95,8 @@ func main() {
 
 func printVersion() {
 	fmt.Println(appName, "version:", appVersion)
+	fmt.Println("Parser version:", rep.ParserVersion)
+	fmt.Println("Supported replay builds:", s2prot.MinBaseBuild, "..", s2prot.MaxBaseBuild)
 	fmt.Println("Platform:", runtime.GOOS, runtime.GOARCH)
 	fmt.Println("Built with:", runtime.Version())
 	fmt.Println("Author:", appAuthor)

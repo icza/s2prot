@@ -17,15 +17,28 @@ import (
 	"github.com/icza/s2prot/build"
 )
 
-// Default base build to be used to decode replay headers (any can be used).
-// Practical to specify the latest as that is the one most likely always needed.
-var defBaseBuild int
+var (
+	// MinBaseBuild is the min supported base build
+	MinBaseBuild int
+
+	// MaxBaseBuild is the max supported base build
+	MaxBaseBuild int
+)
 
 func init() {
-	// Find highest base build and set it as the default:
+	// Init min and max base builds:
 	for k := range build.Builds {
-		if defBaseBuild < k {
-			defBaseBuild = k
+		MinBaseBuild, MaxBaseBuild = k, k
+		break
+	}
+
+	// Find min and max base builds:
+	for k := range build.Builds {
+		if MaxBaseBuild < k {
+			MaxBaseBuild = k
+		}
+		if MinBaseBuild > k {
+			MinBaseBuild = k
 		}
 	}
 }
@@ -265,7 +278,8 @@ func parseProtocol(src string, baseBuild int) *Protocol {
 // DecodeHeader decodes and returns the replay header.
 // Panics if decoding fails.
 func DecodeHeader(contents []byte) Struct {
-	p := GetProtocol(defBaseBuild)
+	// Use max base build to decode replay headers as that is the one most likely always needed.
+	p := GetProtocol(MaxBaseBuild)
 	if p == nil {
 		panic("Default protocol is not available!")
 	}

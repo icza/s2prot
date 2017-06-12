@@ -15,6 +15,11 @@ import (
 	"github.com/icza/s2prot"
 )
 
+const (
+	// ParserVersion is a Semver2 compatible version of the parser.
+	ParserVersion = "v1.0.0"
+)
+
 var (
 	// ErrInvalidRepFile means invalid replay file.
 	ErrInvalidRepFile = errors.New("Invalid SC2Replay file")
