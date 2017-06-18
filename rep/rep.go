@@ -17,7 +17,7 @@ import (
 
 const (
 	// ParserVersion is a Semver2 compatible version of the parser.
-	ParserVersion = "v1.0.0"
+	ParserVersion = "v1.0.1"
 )
 
 var (

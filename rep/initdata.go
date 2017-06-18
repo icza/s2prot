@@ -6,9 +6,7 @@ Types describing the init data (the inital lobby).
 
 package rep
 
-import (
-	"github.com/icza/s2prot"
-)
+import "github.com/icza/s2prot"
 
 // InitData describes the init data (the initial lobby).
 type InitData struct {
@@ -54,6 +52,14 @@ type GameDescription struct {
 	GameOptions      GameOptions
 	cacheHandles     []*CacheHandle    // Lazily initialized cache handles
 	slotDescriptions []SlotDescription // Lazily initialized slot descriptions
+}
+
+// Region returns the region of the replay.
+func (g *GameDescription) Region() *Region {
+	if chs := g.CacheHandles(); len(chs) > 0 {
+		return chs[0].Region
+	}
+	return RegionUnknown
 }
 
 // GameSpeed returns the game speed.
