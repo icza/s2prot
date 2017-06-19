@@ -490,6 +490,29 @@ func regionByID(regionID int64) *Region {
 	return RegionUnknown
 }
 
+// ExpLevel is the type of Expansion level.
+type ExpLevel struct {
+	Enum
+	FullName string // Full (long) name of the expansion level
+	Digest   string // Cache handle digest that identifies (defines) the expansion level
+}
+
+// ExpLevels is the slice of all expansion levels.
+var ExpLevels = []*ExpLevel{
+	{Enum{"LotV"}, "Legacy of the Void", "d92dfc48c484c59154270b924ad7d57484f2ab9a47621c7ab16431bf66c53b40"},
+	{Enum{"HotS"}, "Heart of the Swarm", "66093832128453efffbb787c80b7d3eec1ad81bde55c83c930dea79c4e505a04"},
+	{Enum{"WoL"}, "Wings of Liberty", "421c8aa0f3619b652d23a2735dfee812ab644228235e7a797edecfe8b67da30e"},
+	{Enum{"Unknown"}, "Unknown", ""},
+}
+
+// Named expansion levels.
+var (
+	ExpLevelLotV    = ExpLevels[0]
+	ExpLevelHotS    = ExpLevels[1]
+	ExpLevelWoL     = ExpLevels[2]
+	ExpLevelUnknown = ExpLevels[3]
+)
+
 // CacheHandle is the identifier of a remote resource. A cache hande is a dependency.
 type CacheHandle struct {
 	Type   string  // Type of the resource, file extension.

@@ -62,6 +62,20 @@ func (g *GameDescription) Region() *Region {
 	return RegionUnknown
 }
 
+// ExpLevel returns the expansion level of the replay.
+func (g *GameDescription) ExpLevel() *ExpLevel {
+	if chs := g.CacheHandles(); len(chs) > 0 {
+		for _, exp := range ExpLevels {
+			for _, ch := range chs {
+				if exp.Digest == ch.Digest {
+					return exp
+				}
+			}
+		}
+	}
+	return ExpLevelUnknown
+}
+
 // GameSpeed returns the game speed.
 func (g *GameDescription) GameSpeed() *GameSpeed {
 	return GameSpeeds[g.Int("gameSpeed")]
