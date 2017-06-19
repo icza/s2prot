@@ -25,6 +25,49 @@ func (e Enum) String() string {
 	return e.Name
 }
 
+// GameMode is the game mode type
+type GameMode struct {
+	Enum
+	attrValue string // Game mode value used in attributes events
+}
+
+// GameModes is the slice of all game modes.
+var GameModes = []*GameMode{
+	{Enum{"AutoMM"}, "Amm"},
+	{Enum{"Private"}, "Priv"},
+	{Enum{"Public"}, "Pub"},
+	{Enum{"Single Player"}, ""},
+	{Enum{"Unknown"}, "<>"},
+}
+
+// Named game modes.
+var (
+	GameModeAutoMM       = GameModes[0]
+	GameModePrivate      = GameModes[1]
+	GameModePublic       = GameModes[2]
+	GameModeSinglePlayer = GameModes[3]
+	GameModeUnknown      = GameModes[4]
+)
+
+// Map of game modes, mapped from the attribute value.
+var gameModeMap = make(map[string]*GameMode)
+
+func init() {
+	// Build the gameModeMap map
+	for _, gm := range GameModes {
+		gameModeMap[gm.attrValue] = gm
+	}
+}
+
+// gameModeByAttrValue returns the GameMode specified by its attribute value.
+// GameModeUnknown is returned if attribute value is unknown.
+func gameModeByAttrValue(attrValue string) *GameMode {
+	if gm, ok := gameModeMap[attrValue]; ok {
+		return gm
+	}
+	return GameModeUnknown
+}
+
 // GameSpeed is the game speed type
 type GameSpeed struct {
 	Enum

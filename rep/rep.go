@@ -38,10 +38,10 @@ type Rep struct {
 
 	protocol *s2prot.Protocol // Protocol to decode the replay
 
-	Header   Header        // Replay header (replay game version and length)
-	Details  Details       // Game details (overall replay details)
-	InitData InitData      // Replay init data (the initial lobby)
-	AttrEvts s2prot.Struct // Attributes events
+	Header   Header   // Replay header (replay game version and length)
+	Details  Details  // Game details (overall replay details)
+	InitData InitData // Replay init data (the initial lobby)
+	AttrEvts AttrEvts // Attributes events
 
 	Metadata Metadata // Game metadata (calculated, confirmed results)
 
@@ -171,7 +171,7 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	if err != nil {
 		return nil, ErrInvalidRepFile
 	}
-	rep.AttrEvts = p.DecodeAttributesEvts(data)
+	rep.AttrEvts = newAttrEvts(p.DecodeAttributesEvts(data))
 
 	data, err = m.FileByHash(3675439372, 3912155403, 1108615308) // "replay.gamemetadata.json"
 	if err != nil {
