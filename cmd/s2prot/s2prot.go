@@ -71,7 +71,7 @@ func main() {
 		r.InitData.Struct = nil
 	}
 	if !*attrEvts {
-		r.AttrEvts = nil
+		r.AttrEvts.Struct = nil
 	}
 	if !*metadata {
 		r.Metadata.Struct = nil
