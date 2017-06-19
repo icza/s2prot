@@ -130,6 +130,21 @@ func (d *Details) Players() []Player {
 	return d.players
 }
 
+// Matchup returns the matchup, the race letters of players in team order,
+// inserting 'v' between different teams, e.g. "PvT" or "PTZvZTP".
+func (d *Details) Matchup() string {
+	m := make([]rune, 0, 9)
+	var prevTeamID int64
+	for i, p := range d.Players() {
+		if i > 0 && p.TeamID() != prevTeamID {
+			m = append(m, 'v')
+		}
+		m = append(m, p.Race().Letter)
+		prevTeamID = p.TeamID()
+	}
+	return string(m)
+}
+
 // Player (participant of the game). Includes computers players but excludes observers.
 type Player struct {
 	s2prot.Struct
