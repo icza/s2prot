@@ -185,3 +185,7 @@ Which yields a JSON text similar to the one posted above (at High-level Usage).
 ## License
 
 Open-sourced under the [Apache License 2.0](https://github.com/icza/s2prot/blob/master/LICENSE).
+
+## Example projects using this
+
+- https://github.com/icza/repmastered
