@@ -17,7 +17,7 @@ import (
 
 const (
 	// ParserVersion is a Semver2 compatible version of the parser.
-	ParserVersion = "v1.1.0"
+	ParserVersion = "v1.2.0-dev"
 )
 
 var (
@@ -47,7 +47,7 @@ type Rep struct {
 
 	GameEvts    []s2prot.Event // Game events
 	MessageEvts []s2prot.Event // Message events
-	TrackerEvts []s2prot.Event // Tracker events
+	TrackerEvts *TrackerEvts   // Tracker events
 
 	GameEvtsErr    bool // Tells if decoding game events had errors
 	MessageEvtsErr bool // Tells if decoding message events had errors
@@ -206,7 +206,9 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 		if err != nil {
 			return nil, ErrInvalidRepFile
 		}
-		rep.TrackerEvts, err = p.DecodeTrackerEvts(data)
+		evts, err := p.DecodeTrackerEvts(data)
+		rep.TrackerEvts = &TrackerEvts{Evts: evts}
+		rep.TrackerEvts.init(&rep)
 		rep.TrackerEvtsErr = err != nil
 	}
 
