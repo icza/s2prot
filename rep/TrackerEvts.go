@@ -7,7 +7,6 @@ Type describing the tracker events.
 package rep
 
 import (
-	"fmt"
 	"math"
 
 	"github.com/icza/s2prot"
@@ -97,7 +96,6 @@ func (t *TrackerEvts) init(rep *Rep) {
 
 	cx := rep.InitData.GameDescription.MapSizeX() / 2
 	cy := rep.InitData.GameDescription.MapSizeY() / 2
-	fmt.Println(cx, cy)
 
 	for _, e := range t.Evts {
 		if e.Loop() == 0 && e.ID == TrackerEvtIDUnitBorn {
@@ -111,7 +109,7 @@ func (t *TrackerEvts) init(rep *Rep) {
 			}
 		}
 
-		if e.ID != TrackerEvtIDPlayerStats {
+		if e.ID == TrackerEvtIDPlayerStats {
 			pid := e.Int("playerId")
 			st := pidStats[pid]
 			if st != nil {
