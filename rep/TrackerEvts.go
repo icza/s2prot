@@ -30,6 +30,9 @@ type TrackerEvts struct {
 
 	// PIDPlayerDescMap is a PlayerDesc map mapped from player ID.
 	PIDPlayerDescMap map[int64]*PlayerDesc
+
+	// ToonPlayerDescMap is a PlayerDesc map mapped from toon.
+	ToonPlayerDescMap map[string]*PlayerDesc `json:"-"`
 }
 
 // PlayerDesc contains calculated, derived data from tracker events.
@@ -132,6 +135,13 @@ func (t *TrackerEvts) init(rep *Rep) {
 		}
 		pd.SQ = calcSQ(st.unspents/st.samples, st.incomes/st.samples)
 		pd.SupplyCappedPercent = int(st.supCapped * 100 / st.samples)
+	}
+
+	// Fill ToonPlayerDescMap
+	t.ToonPlayerDescMap = make(map[string]*PlayerDesc)
+	for _, pd := range pidPlayerDescMap {
+		slot := rep.InitData.LobbyState.Slots[pd.SlotID]
+		t.ToonPlayerDescMap[slot.ToonHandle()] = pd
 	}
 }
 
