@@ -7,6 +7,7 @@ Type describing the tracker events.
 package rep
 
 import (
+	"fmt"
 	"math"
 
 	"github.com/icza/s2prot"
@@ -80,28 +81,26 @@ func (t *TrackerEvts) init(rep *Rep) {
 		if e.Loop() > 0 {
 			break
 		}
-		if e.Int("ID") != TrackerEvtIDPlayerSetup {
+		if e.ID != TrackerEvtIDPlayerSetup {
 			continue
 		}
 		pid := e.Int("playerId")
 		pd := pidPlayerDescMap[pid]
 		if pd == nil {
-			pd = &PlayerDesc{PlayerID: pid}
+			pd = &PlayerDesc{PlayerID: pid, SlotID: e.Int("slotId"), UserID: e.Int("userId")}
 			pidPlayerDescMap[pid] = pd
 			pidStats[pid] = &stats{}
 		}
-		pd.SlotID = e.Int("slotId")
-		pd.UserID = e.Int("userId")
 	}
 
 	// Read start locations and player stats
 
-	cx := rep.InitData.GameDescription.MapSizeX()
-	cy := rep.InitData.GameDescription.MapSizeY()
+	cx := rep.InitData.GameDescription.MapSizeX() / 2
+	cy := rep.InitData.GameDescription.MapSizeY() / 2
+	fmt.Println(cx, cy)
 
 	for _, e := range t.Evts {
-		eid := e.Int("ID")
-		if e.Loop() == 0 && eid == TrackerEvtIDUnitBorn {
+		if e.Loop() == 0 && e.ID == TrackerEvtIDUnitBorn {
 			if isMainBuilding(e.Stringv("unitTypeName")) {
 				pd := pidPlayerDescMap[e.Int("controlPlayerId")]
 				if pd != nil {
@@ -112,7 +111,7 @@ func (t *TrackerEvts) init(rep *Rep) {
 			}
 		}
 
-		if eid != TrackerEvtIDPlayerStats {
+		if e.ID != TrackerEvtIDPlayerStats {
 			pid := e.Int("playerId")
 			st := pidStats[pid]
 			if st != nil {
