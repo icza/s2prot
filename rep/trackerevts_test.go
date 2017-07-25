@@ -5,6 +5,26 @@ import (
 	"testing"
 )
 
+func TestIsMainBuilding(t *testing.T) {
+	cases := []struct {
+		name   string
+		isMain bool
+	}{
+		{"Nexus", true},
+		{"CommandCenter", true},
+		{"Hatchery", true},
+		{"", false},
+		{"nexus", false},
+		{"kitty", false},
+	}
+
+	for _, c := range cases {
+		if got := isMainBuilding(c.name); got != c.isMain {
+			t.Errorf("Expected: %v, got: %v", c.isMain, got)
+		}
+	}
+}
+
 func TestAngleToClock(t *testing.T) {
 	cases := []struct {
 		angle float64
