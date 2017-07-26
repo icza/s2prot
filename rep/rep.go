@@ -221,5 +221,8 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 
 // Close closes the Rep and its resources.
 func (r *Rep) Close() error {
+	if r.m == nil {
+		return nil
+	}
 	return r.m.Close()
 }
