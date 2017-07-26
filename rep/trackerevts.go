@@ -51,13 +51,13 @@ type PlayerDesc struct {
 
 	// StartDir is the start direction of the player, expressed in clock,
 	// e.g. 1 o'clock, 3 o'clock etcc, in range of 1..12
-	StartDir int
+	StartDir int32
 
 	// SQ (Spending Quotient) of the player
-	SQ int
+	SQ int32
 
 	// SupplyCappedPercent is the supply-capped percent of the player
-	SupplyCappedPercent int
+	SupplyCappedPercent int32
 }
 
 // init initializes / preprocesses the tracker events.
@@ -131,7 +131,7 @@ func (t *TrackerEvts) init(rep *Rep) {
 			continue
 		}
 		pd.SQ = calcSQ(st.unspents/st.samples, st.incomes/st.samples)
-		pd.SupplyCappedPercent = int(st.supCapped * 100 / st.samples)
+		pd.SupplyCappedPercent = int32(st.supCapped * 100 / st.samples)
 	}
 
 	// Fill ToonPlayerDescMap
@@ -155,7 +155,7 @@ func isMainBuilding(unitTypeName string) bool {
 //  - PI/2 => 12 (o'clock)
 //  - 0 => 3 (o'clock)
 //  - PI => 9 (o'clock)
-func angleToClock(angle float64) int {
+func angleToClock(angle float64) int32 {
 	// The algorithm below computes clock value in the range of 0..11 where
 	// 0 corresponds to 12.
 
@@ -175,7 +175,7 @@ func angleToClock(angle float64) int {
 	}
 
 	// And convert to a clock value:
-	hour := int(angle / oneHour)
+	hour := int32(angle / oneHour)
 	if hour == 0 {
 		return 12
 	}
@@ -191,6 +191,6 @@ func angleToClock(angle float64) int {
 // and samples are taken up to the loop of the last cmd game event of the user.
 //
 // Source: Do you macro like a pro? http://www.teamliquid.net/forum/viewmessage.php?topic_id=266019
-func calcSQ(unspentResources, income int64) int {
-	return int(35*(0.00137*float64(income)-math.Log(float64(unspentResources))) + 240 + 0.5)
+func calcSQ(unspentResources, income int64) int32 {
+	return int32(35*(0.00137*float64(income)-math.Log(float64(unspentResources))) + 240 + 0.5)
 }

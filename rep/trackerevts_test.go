@@ -28,7 +28,7 @@ func TestIsMainBuilding(t *testing.T) {
 func TestAngleToClock(t *testing.T) {
 	cases := []struct {
 		angle float64
-		clock int
+		clock int32
 	}{
 		{0, 3},
 		{math.Pi / 2, 12},
@@ -52,7 +52,7 @@ func TestAngleToClock(t *testing.T) {
 func TestCalcSQ(t *testing.T) {
 	cases := []struct {
 		unspent, income int64
-		sq              int
+		sq              int32
 	}{
 		// Test table taken from http://www.teamliquid.net/forum/starcraft-2/266019-do-you-macro-like-a-pro
 		{959, 1970, 94},
