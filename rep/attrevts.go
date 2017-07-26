@@ -25,8 +25,8 @@ type AttrEvts struct {
 	scopes s2prot.Struct
 }
 
-// newAttrEvts creates a new attributes events from the specified Struct.
-func newAttrEvts(s s2prot.Struct) AttrEvts {
+// NewAttrEvts creates a new attributes events from the specified Struct.
+func NewAttrEvts(s s2prot.Struct) AttrEvts {
 	a := AttrEvts{
 		Struct: s,
 		scopes: s.Structv("scopes"),

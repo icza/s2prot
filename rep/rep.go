@@ -165,13 +165,13 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	if err != nil {
 		return nil, ErrInvalidRepFile
 	}
-	rep.InitData = newInitData(p.DecodeInitData(data))
+	rep.InitData = NewInitData(p.DecodeInitData(data))
 
 	data, err = m.FileByHash(1306016990, 497594575, 2731474728) // "replay.attributes.events"
 	if err != nil {
 		return nil, ErrInvalidRepFile
 	}
-	rep.AttrEvts = newAttrEvts(p.DecodeAttributesEvts(data))
+	rep.AttrEvts = NewAttrEvts(p.DecodeAttributesEvts(data))
 
 	data, err = m.FileByHash(3675439372, 3912155403, 1108615308) // "replay.gamemetadata.json"
 	if err != nil {
@@ -225,4 +225,10 @@ func (r *Rep) Close() error {
 		return nil
 	}
 	return r.m.Close()
+}
+
+// MPQ gives access to the underlying MPQ parser of the rep.
+// Intentionally not a method of Rep to not encourage its use.
+func MPQ(r *Rep) *mpq.MPQ {
+	return r.m
 }

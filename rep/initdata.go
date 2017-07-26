@@ -17,8 +17,8 @@ type InitData struct {
 	UserInitDatas   []UserInitData  `json:"-"` // Array User init data structs
 }
 
-// newInitData creates a new init data from the specified Struct.
-func newInitData(s s2prot.Struct) InitData {
+// NewInitData creates a new init data from the specified Struct.
+func NewInitData(s s2prot.Struct) InitData {
 	// Init data is a struct with 1 field only which is a struct. Use that as the root struct.
 	i := InitData{Struct: s.Structv("syncLobbyState")}
 
