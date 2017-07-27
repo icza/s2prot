@@ -228,7 +228,7 @@ func (r *Rep) Close() error {
 }
 
 // MPQ gives access to the underlying MPQ parser of the rep.
-// Intentionally not a method of Rep to not encourage its use.
+// Intentionally not a method of Rep to not urge its use.
 func MPQ(r *Rep) *mpq.MPQ {
 	return r.m
 }
