@@ -133,16 +133,16 @@ var localRaceNames = make(map[string]*Race)
 
 func init() {
 	// Build the localRaceNames map
-	// English, German, Portuguese, Korean, Chinese, Russian, Polish, Mandarin (Chinese)
-	for _, s := range []string{"Terran", "Terraner", "Terrano", "테란", "人類", "Терран", "Terrani", "人类"} {
+	// English, German, Portuguese, Korean, Chinese, Russian, Russian (variant?), Polish, Mandarin (Chinese)
+	for _, s := range []string{"Terran", "Terraner", "Terrano", "테란", "人類", "Терран", "Терраны", "Terrani", "人类"} {
 		localRaceNames[s] = RaceTerran
 	}
-	// English, Korean, Chinese, Russian, Polish, Mandarin (Chinese)
-	for _, s := range []string{"Zerg", "저그", "蟲族", "Зерг", "Zergi", "异虫"} {
+	// English, Korean, Chinese, Russian, Russian (variant?), Polish, Mandarin (Chinese)
+	for _, s := range []string{"Zerg", "저그", "蟲族", "Зерг", "Зерги", "Zergi", "异虫"} {
 		localRaceNames[s] = RaceZerg
 	}
-	// English, Korean, Chinese, Russian, Polish, Mandarin (Chinese)
-	for _, s := range []string{"Protoss", "프로토스", "神族", "Протосс", "Protosi", "星灵"} {
+	// English, Korean, Chinese, Russian, Russian (variant?), Polish, Mandarin (Chinese)
+	for _, s := range []string{"Protoss", "프로토스", "神族", "Протосс", "Протоссы", "Protosi", "星灵"} {
 		localRaceNames[s] = RaceProtoss
 	}
 }
