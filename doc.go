@@ -21,7 +21,7 @@ To open and parse a replay:
 
 	r, err := rep.NewFromFile("../../mpq/reps/lotv.SC2Replay")
 	if err != nil {
-		fmt.Println("%v\n", err)
+		fmt.Printf("Failed to open file: %v\n", err)
 		return
 	}
 	defer r.Close()
