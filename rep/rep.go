@@ -159,7 +159,7 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	if err != nil || data == nil || len(data) == 0 {
 		// Attempt to open the anonymized version
 		data, err = m.FileByName("replay.details.backup")
-		if err != nil || data == nil || len(data) == 0 {
+		if err != nil || len(data) == 0 {
 			return nil, ErrInvalidRepFile
 		}
 	}
@@ -169,7 +169,7 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	if err != nil || data == nil || len(data) == 0 {
 		// Attempt to open the anonymized version
 		data, err = m.FileByName("replay.initData.backup")
-		if err != nil || data == nil || len(data) == 0 {
+		if err != nil || len(data) == 0 {
 			return nil, ErrInvalidRepFile
 		}
 	}
