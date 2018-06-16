@@ -19,7 +19,7 @@ import (
 
 const (
 	appName    = "s2prot"
-	appVersion = "v1.3.0"
+	appVersion = "v1.4.0"
 	appAuthor  = "Andras Belicza"
 	appHome    = "https://github.com/icza/s2prot"
 )

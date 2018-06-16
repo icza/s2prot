@@ -156,9 +156,9 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	rep.protocol = p
 
 	data, err := m.FileByHash(620083690, 3548627612, 4013960850) // "replay.details"
-	if err != nil || data == nil || len(data) == 0 {
+	if err != nil || len(data) == 0 {
 		// Attempt to open the anonymized version
-		data, err = m.FileByName("replay.details.backup")
+		data, err = m.FileByHash(1421087648, 3590964654, 3400061273) // "replay.details.backup"
 		if err != nil || len(data) == 0 {
 			return nil, ErrInvalidRepFile
 		}
@@ -166,9 +166,9 @@ func newRep(m *mpq.MPQ, game, message, tracker bool) (parsedRep *Rep, errRes err
 	rep.Details = Details{Struct: p.DecodeDetails(data)}
 
 	data, err = m.FileByHash(3544165653, 1518242780, 4280631132) // "replay.initData"
-	if err != nil || data == nil || len(data) == 0 {
+	if err != nil || len(data) == 0 {
 		// Attempt to open the anonymized version
-		data, err = m.FileByName("replay.initData.backup")
+		data, err = m.FileByHash(868899905, 1282002788, 1614930827) // "replay.initData.backup"
 		if err != nil || len(data) == 0 {
 			return nil, ErrInvalidRepFile
 		}
