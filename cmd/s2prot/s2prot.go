@@ -19,7 +19,7 @@ import (
 
 const (
 	appName    = "s2prot"
-	appVersion = "v1.4.0"
+	appVersion = "v1.4.1"
 	appAuthor  = "Andras Belicza"
 	appHome    = "https://github.com/icza/s2prot"
 )
@@ -36,6 +36,7 @@ var (
 	gameEvts    = flag.Bool("gameevts", false, "print game events")
 	msgEvts     = flag.Bool("msgevts", false, "print message events")
 	trackerEvts = flag.Bool("trackerevts", false, "print tracker events")
+	outfile     = flag.String("outfile", "", "Optional output file name")
 
 	indent = flag.Bool("indent", true, "use indentation when formatting output")
 )
@@ -86,7 +87,24 @@ func main() {
 		r.TrackerEvts = nil
 	}
 
-	enc := json.NewEncoder(os.Stdout)
+	var enc *json.Encoder = nil
+
+	if len(*outfile) == 0 {
+		enc = json.NewEncoder(os.Stdout)
+	} else {
+		fp, err := os.Create(*outfile)
+		if err != nil {
+			fmt.Printf("Failed to create output file: %v\n", err)
+			os.Exit(2)
+		}
+		enc = json.NewEncoder(fp)
+		defer func() {
+			if err := fp.Close(); err != nil {
+				panic(err)
+			}
+		}()
+	}
+
 	if *indent {
 		enc.SetIndent("", "  ")
 	}
