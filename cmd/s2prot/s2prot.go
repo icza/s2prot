@@ -36,7 +36,7 @@ var (
 	gameEvts    = flag.Bool("gameevts", false, "print game events")
 	msgEvts     = flag.Bool("msgevts", false, "print message events")
 	trackerEvts = flag.Bool("trackerevts", false, "print tracker events")
-	outfile     = flag.String("outfile", "", "Optional output file name")
+	outFile     = flag.String("outfile", "", "optional output file name")
 
 	indent = flag.Bool("indent", true, "use indentation when formatting output")
 )
@@ -87,22 +87,22 @@ func main() {
 		r.TrackerEvts = nil
 	}
 
-	var enc *json.Encoder = nil
+	var enc *json.Encoder
 
-	if len(*outfile) == 0 {
+	if *outFile == "" {
 		enc = json.NewEncoder(os.Stdout)
 	} else {
-		fp, err := os.Create(*outfile)
+		fp, err := os.Create(*outFile)
 		if err != nil {
 			fmt.Printf("Failed to create output file: %v\n", err)
-			os.Exit(2)
+			os.Exit(3)
 		}
-		enc = json.NewEncoder(fp)
 		defer func() {
 			if err := fp.Close(); err != nil {
 				panic(err)
 			}
 		}()
+		enc = json.NewEncoder(fp)
 	}
 
 	if *indent {
