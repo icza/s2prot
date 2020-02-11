@@ -49,6 +49,11 @@ and much easier to use.
 
 The below example code can be found in https://github.com/icza/s2prot/blob/master/_example/rep.go.
 
+Install the latest version of the library:
+```
+go get -u github.com/icza/s2prot/rep@master
+```
+
 To open and parse a replay:
 
 	import "github.com/icza/s2prot/rep"
