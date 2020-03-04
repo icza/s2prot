@@ -446,7 +446,7 @@ func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decU
 		e := Event{Struct: d.instance(evtType.typeid).(Struct), EvtType: evtType}
 		// Copy to / duplicate data in Struct so Struct.String() includes them too
 		e.Struct["id"] = evtid
-		e.Struct["name"] = evtType.Name
+		e.Struct["evtTypeName"] = evtType.Name
 		e.Struct["loop"] = loop
 		if decUserID {
 			e.Struct["userid"] = userid
