@@ -309,7 +309,7 @@ func (e *Event) Loop() int64 {
 
 // UserID returns the ID of the user that issued the event.
 func (e *Event) UserID() int64 {
-	return e.Int("userid")
+    return e.Int("userid", "userId")
 }
 
 // BitArr is a bit array which stores the bits in a byte slice.
