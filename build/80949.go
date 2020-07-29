@@ -1,7 +1,7 @@
 package build
 
 func init() {
-    Builds[80949] = `
+	Builds[80949] = `
 # Copyright (c) 2015-2017 Blizzard Entertainment
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
