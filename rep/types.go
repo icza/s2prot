@@ -466,11 +466,14 @@ var Regions = []*Region{
 	{Enum{"Korea"}, "KR", mustPU("http://kr.depot.battle.net:1119/"), mustPU("http://kr.battle.net/"),
 		[]*Realm{RealmKorea, RealmTaiwan},
 		[]*BnetLang{BnetLangKorean, BnetLangChineseTraditional}},
+	{Enum{"SEA"}, "SG", mustPU("http://sg.depot.battle.net:1119/"), mustPU("http://sea.battle.net/"),
+		[]*Realm{RealmSEA},
+		[]*BnetLang{BnetLangEnglish}},
 	{Enum{"China"}, "CN", mustPU("http://cn.depot.battle.net:1119/"), mustPU("http://www.battlenet.com.cn/"),
 		[]*Realm{RealmChina},
 		[]*BnetLang{BnetLangChineseTraditional}},
-	{Enum{"SEA"}, "SG", mustPU("http://sg.depot.battle.net:1119/"), mustPU("http://sea.battle.net/"),
-		[]*Realm{RealmSEA},
+	{Enum{"Public Test"}, "XX", mustPU("http://xx.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
+		[]*Realm{},
 		[]*BnetLang{BnetLangEnglish}},
 	{Enum{"Public Test"}, "XX", mustPU("http://xx.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
 		[]*Realm{},
@@ -496,13 +499,14 @@ func (r *Region) Realm(realmID int64) *Realm {
 
 // Named regions.
 var (
-	RegionUnknown    = Regions[0]
-	RegionUS         = Regions[1]
-	RegionEU         = Regions[2]
-	RegionKR         = Regions[3]
-	RegionSEA        = Regions[4]
-	RegionCN         = Regions[5]
-	RegionPublicTest = Regions[6]
+	RegionUnknown     = Regions[0]
+	RegionUS          = Regions[1]
+	RegionEU          = Regions[2]
+	RegionKR          = Regions[3]
+	RegionSEA         = Regions[4]
+	RegionCN          = Regions[5]
+	RegionPublicTest  = Regions[6]
+	RegionPublicTest2 = Regions[7]
 )
 
 // Map of regions, mapped from the 2-letter region code.
