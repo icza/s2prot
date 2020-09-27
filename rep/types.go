@@ -614,6 +614,11 @@ var standardCHData = map[string]string{
 	"af23fed12efa6c496166dcf9441f802f33ab15172a87133dfae41ed603e3de16": "Standard Data: VoidMulti.SC2Mod",
 	"18faf973a073da237632c56e45cefd7b1ea5b793020310bdaf557415bff9010b": "Standard Data: Void.SC2Campaign",
 	"139e69c209051badff7c8c9cb47d19eb6f87e9889dd08239a79e2410436722ad": "Standard Data: VoidStory.SC2Campaign",
+	"85bf767f9ffd66cb7b004cf4733e8f2d52e2e3d7152a05efa730ed1dcb04be01": "Standard Data: NovaStoryAssets.SC2Mod",
+	"136f4249de6cdb881c85ff690e134dca0b3fe468d00978a287071e28f3a3dcf7": "Standard Data: War3.SC2Mod",
+	"7549bd8a08bbaaea7f9738168265df5a2d11468bb660b75dc7f2649d655223ac": "Standard Data: WarClassic.SC2Mod",
+	"5b426c51ff32a1908a4869fbef3fe3c7ed6675785de3b818945d4a220306391a": "Standard Data: WarClassicSystem.SC2Mod",
+	"17e4b7a9e1af26fc3ff110b426887caa9711bbb22d532c0884228e72cad16162": "Standard Data: WarCoop.SC2Mod",
 
 	"d2b6f3851f19812ab614544137b896bb046c6a278e75d196604d6fdbbc69f42a": "Standard Data: Teams01.SC2Mod",
 	"7f41411aa597f4b46440d42a563348bf53822d2a68112f0104f9b891f6f05ae1": "Standard Data: Teams02.SC2Mod",
