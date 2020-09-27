@@ -500,8 +500,8 @@ var (
 	RegionUS         = Regions[1]
 	RegionEU         = Regions[2]
 	RegionKR         = Regions[3]
-	RegionCN         = Regions[4]
-	RegionSEA        = Regions[5]
+	RegionSEA        = Regions[4]
+	RegionCN         = Regions[5]
 	RegionPublicTest = Regions[6]
 )
 
