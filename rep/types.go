@@ -608,8 +608,12 @@ var standardCHData = map[string]string{
 	"1767383aa0f5b2eec7a1ec0eec8c98f10377fe2104c38a7e4fce44555aac07c7": "Standard Data: LibertyStory.SC2Campaign",
 	"66093832128453efffbb787c80b7d3eec1ad81bde55c83c930dea79c4e505a04": "Standard Data: Swarm.SC2Mod",
 	"881585946366c3c9d1499f38aba954216d3213de69554b9bee6b07311fb38336": "Standard Data: SwarmMulti.SC2Mod",
+	"37e14076c10fbbe322a2bb2c1d2fd62d1c230e94fd6e37520b968d14bc72dc7e": "Standard Data: Swarm.SC2Campaign"
+	"ba31b0098fae9dded72d5392bbbf3afab519bc3ee15edd05d9e93a4a9946d99f": "Standard Data: SwarmStory.SC2Campaign"
 	"d92dfc48c484c59154270b924ad7d57484f2ab9a47621c7ab16431bf66c53b40": "Standard Data: Void.SC2Mod",
 	"af23fed12efa6c496166dcf9441f802f33ab15172a87133dfae41ed603e3de16": "Standard Data: VoidMulti.SC2Mod",
+	"18faf973a073da237632c56e45cefd7b1ea5b793020310bdaf557415bff9010b": "Standard Data: Void.SC2Campaign"
+	"139e69c209051badff7c8c9cb47d19eb6f87e9889dd08239a79e2410436722ad": "Standard Data: VoidStory.SC2Campaign"
 
 	"d2b6f3851f19812ab614544137b896bb046c6a278e75d196604d6fdbbc69f42a": "Standard Data: Teams01.SC2Mod",
 	"7f41411aa597f4b46440d42a563348bf53822d2a68112f0104f9b891f6f05ae1": "Standard Data: Teams02.SC2Mod",
