@@ -48,6 +48,12 @@ func (d *Details) Time() time.Time {
 	return time.Unix(0, (d.Int("timeUTC")-116444736000000000)*100)
 }
 
+//Time returns the replay date+time - localOffset
+func (d *Details) TimeUTC() time.Time {
+	// timeUTC is in 10 microsecond unit
+	return time.Unix(0, (d.Int("timeUTC")-116444736000000000 - (d.Int("timeLocalOffset")) )*100)
+}
+
 // TimeLocalOffset returns the local time offset of the playing who saved the replay.
 func (d *Details) TimeLocalOffset() time.Duration {
 	// timeLocalOffset is in 10 microsecond unit
@@ -245,6 +251,11 @@ func (t *Toon) RegionID() int64 {
 // Region returns the region.
 func (t *Toon) Region() *Region {
 	return regionByID(t.RegionID())
+}
+
+// Returns the starcraft2.com url
+func (t *Toon) Url() string {
+	return fmt.Sprintf("%s/%d/%d/%d","https://starcraft2.com/en-us/en/profile", t.RegionID(), t.RealmID(), t.ID())
 }
 
 // String returns a string representation of the Toon, the same format as used in

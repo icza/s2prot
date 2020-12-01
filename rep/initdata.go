@@ -636,3 +636,8 @@ func (u *UserInitData) Mount() string {
 func (u *UserInitData) ToonHandle() string {
 	return u.Stringv("toonHandle")
 }
+
+//MMR returns the mmr for the handle if set
+func (u *UserInitData) MMR() int64 {
+	return u.Int("scaledRating")
+}
