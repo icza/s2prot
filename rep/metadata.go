@@ -64,7 +64,8 @@ type MetaPlayer struct {
 
 // PlayerID returns the player ID.
 func (m *MetaPlayer) PlayerID() int64 {
-	return m.Int("PlayerID")
+	// the metadata PlayerID is a float for some reason
+	return int64(m.Float("PlayerID"))
 }
 
 // MMR returns the player's (race-specific) MMR value.
