@@ -142,7 +142,7 @@ func (t *TrackerEvts) init(rep *Rep) {
 	}
 }
 
-// isMainBuilding tells if the unit type name denots a main building, that is
+// isMainBuilding tells if the unit type name denotes a main building, that is
 // one of Nexus, Command Center and Hatchery.
 func isMainBuilding(unitTypeName string) bool {
 	return unitTypeName == "Nexus" || unitTypeName == "CommandCenter" || unitTypeName == "Hatchery"
@@ -187,7 +187,7 @@ func angleToClock(angle float64) int32 {
 // Algorithm:
 // SQ = 35 * ( 0.00137 * I - ln( U ) ) + 240
 // Where U is the average unspent resources (Resources Current; including minerals and vespene)
-// and I is the average income (Resource Colleciton Rate; including minerals and vespene);
+// and I is the average income (Resource Collection Rate; including minerals and vespene);
 // and samples are taken up to the loop of the last cmd game event of the user.
 //
 // Source: Do you macro like a pro? http://www.teamliquid.net/forum/viewmessage.php?topic_id=266019

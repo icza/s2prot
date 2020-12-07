@@ -1,6 +1,6 @@
 /*
 
-Types describing the init data (the inital lobby).
+Types describing the init data (the initial lobby).
 
 */
 
