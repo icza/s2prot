@@ -289,7 +289,7 @@ func (s *Struct) BitArr(path ...string) (v BitArr) {
 	return
 }
 
-// String returns the idented JSON string representation of the Struct.
+// String returns the indented JSON string representation of the Struct.
 // Defined with value receiver so this gets called even if a non-pointer is printed.
 func (s Struct) String() string {
 	b, _ := json.MarshalIndent(s, "", "  ")
@@ -309,7 +309,7 @@ func (e *Event) Loop() int64 {
 
 // UserID returns the ID of the user that issued the event.
 func (e *Event) UserID() int64 {
-    return e.Int("userid", "userId")
+	return e.Int("userid", "userId")
 }
 
 // BitArr is a bit array which stores the bits in a byte slice.

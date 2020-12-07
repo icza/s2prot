@@ -36,7 +36,7 @@ func (m *Metadata) BaseBuild() string {
 	return m.Stringv("BaseBuild")
 }
 
-// DurationSec returns the game duraiton in seconds.
+// DurationSec returns the game duration in seconds.
 func (m *Metadata) DurationSec() float64 {
 	return m.Float("Duration")
 }

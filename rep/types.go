@@ -457,19 +457,19 @@ var Regions = []*Region{
 	{Enum{"Unknown"}, "", mustPU("http://unknown.depot.battle.net:1119/"), mustPU("http://unknown.battle.net/"),
 		[]*Realm{},
 		[]*BnetLang{BnetLangEnglish}},
-	{Enum{"US"}, "US", mustPU("http://us.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
+	{Enum{"US"}, "US", mustPU("https://us-s2-depot.classic.blizzard.com/"), mustPU("http://us.battle.net/"),
 		[]*Realm{RealmNorthAmerica, RealmLatinAmerica},
 		[]*BnetLang{BnetLangEnglish, BnetLangSpanish, BnetLangPortuguese}},
-	{Enum{"Europe"}, "EU", mustPU("http://eu.depot.battle.net:1119/"), mustPU("http://eu.battle.net/"),
+	{Enum{"Europe"}, "EU", mustPU("https://eu-s2-depot.classic.blizzard.com/"), mustPU("http://eu.battle.net/"),
 		[]*Realm{RealmEurope, RealmRussia},
 		[]*BnetLang{BnetLangEnglish, BnetLangGerman, BnetLangFrench, BnetLangSpanish, BnetLangRussian, BnetLangItalian, BnetLangPolish}},
-	{Enum{"Korea"}, "KR", mustPU("http://kr.depot.battle.net:1119/"), mustPU("http://kr.battle.net/"),
+	{Enum{"Korea"}, "KR", mustPU("https://kr-s2-depot.classic.blizzard.com/"), mustPU("http://kr.battle.net/"),
 		[]*Realm{RealmKorea, RealmTaiwan},
 		[]*BnetLang{BnetLangKorean, BnetLangChineseTraditional}},
 	{Enum{"SEA"}, "SG", mustPU("http://sg.depot.battle.net:1119/"), mustPU("http://sea.battle.net/"),
 		[]*Realm{RealmSEA},
 		[]*BnetLang{BnetLangEnglish}},
-	{Enum{"China"}, "CN", mustPU("http://cn.depot.battle.net:1119/"), mustPU("http://www.battlenet.com.cn/"),
+	{Enum{"China"}, "CN", mustPU("http://cn-s2-depot.battlenet.com.cn/"), mustPU("http://www.battlenet.com.cn/"),
 		[]*Realm{RealmChina},
 		[]*BnetLang{BnetLangChineseTraditional}},
 	{Enum{"Public Test"}, "XX", mustPU("http://xx.depot.battle.net:1119/"), mustPU("http://us.battle.net/"),
@@ -594,7 +594,7 @@ func (c *CacheHandle) RelativeFile() string {
 	return path.Join(c.Digest[0:2], c.Digest[2:4], c.FileName())
 }
 
-// StandardData returns the content of the resouce denoted by the cache handle if this is a standard data.
+// StandardData returns the content of the resource denoted by the cache handle if this is a standard data.
 func (c *CacheHandle) StandardData() string {
 	return standardCHData[c.Digest]
 }
