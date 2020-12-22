@@ -84,8 +84,8 @@ func (d *Details) DefaultDifficulty() int64 {
 }
 
 // Difficulty returns the difficulty.
-func (d *Details) Difficulty() string {
-	return d.Stringv("difficulty")
+func (d *Details) Difficulty() int64 {
+	return d.Int("difficulty")
 }
 
 // Description returns the description.
