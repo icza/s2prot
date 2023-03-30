@@ -1,6 +1,7 @@
 # s2prot
 
-[![Build Status](https://travis-ci.org/icza/s2prot.svg?branch=master)](https://travis-ci.org/icza/s2prot)
+![Build Status](https://github.com/icza/s2prot/actions/workflows/go.yml/badge.svg)
+[![Go Reference](https://pkg.go.dev/badge/github.com/icza/s2prot.svg)](https://pkg.go.dev/github.com/icza/s2prot)
 [![GoDoc](https://godoc.org/github.com/icza/s2prot?status.svg)](https://godoc.org/github.com/icza/s2prot)
 [![Go Report Card](https://goreportcard.com/badge/github.com/icza/s2prot)](https://goreportcard.com/report/github.com/icza/s2prot)
 [![codecov](https://codecov.io/gh/icza/s2prot/branch/master/graph/badge.svg)](https://codecov.io/gh/icza/s2prot)
