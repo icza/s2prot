@@ -1,8 +1,6 @@
 /*
-
 Package main is a simple CLI app to parse and display information about
 a StarCraft II replay passed as a CLI argument.
-
 */
 package main
 
@@ -19,7 +17,7 @@ import (
 
 const (
 	appName    = "s2prot"
-	appVersion = "v1.5.0"
+	appVersion = "v1.5.1"
 	appAuthor  = "Andras Belicza"
 	appHome    = "https://github.com/icza/s2prot"
 )
