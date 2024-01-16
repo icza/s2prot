@@ -41,6 +41,16 @@ func init() {
 			MinBaseBuild = k
 		}
 	}
+
+	// Consider duplicates too
+	for k := range build.Duplicates {
+		if MaxBaseBuild < k {
+			MaxBaseBuild = k
+		}
+		if MinBaseBuild > k {
+			MinBaseBuild = k
+		}
+	}
 }
 
 // EvtType describes a named event data structure type.
