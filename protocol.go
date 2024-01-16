@@ -427,7 +427,7 @@ func (p *Protocol) decodeEvts(d decoder, evtidTypeid int, etypes []EvtType, decU
 	// Protect the events decoding:
 	defer func() {
 		if r := recover(); r != nil {
-			err = fmt.Errorf("Failed to decode events: %v", r)
+			err = fmt.Errorf("failed to decode events: %v", r)
 			log.Println(err)
 		}
 		// Successfully decoded events will be returned
